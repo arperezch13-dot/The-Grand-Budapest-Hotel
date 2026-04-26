@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>The Grand Budapest Hotel</title>
+    <script defer src="JS/index.js"></script>
+</head>
+
+<body>
+    <!--Header-->
+    <header class="flex-row">
+        <img class="logo" src="Media/BL (2).png" alt="GBH Logo">
+        <nav>
+            <ul>
+                <li><a class="link" href="index.html">English</a></li>
+                <li><a class="link" href="Spanish.html">Spanish</a></li>
+                <li><a class="link" href="Online-check-in.html">Online Check-in</a></li>
+                <li><a class="link" href="Book-now.html">Book now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!--Video banner-->
+        <section class="carrousel">
+            <div class="carrousel__container">
+                <video id="gbhvideo" playsinline autoplay muted loop src="Media/Videos/0112(1).mp4"
+                    type="video/mp4"></video>
+
+                <div class="carrousel__content">
+                    <h1 id="main-title" class="text-xl">The Grand Budapest Hotel</h1>
+                </div>
+                <div class="carrousel-control flex-row">
+                    <button class="Mendls-btn"><img src="Media/icon.png" data-time="0" alt="Mendls"></button>
+                    <button class="Mendls-btn"><img src="Media/icon.png" data-time="16" alt="Mendls"></button>
+                    <button class="Mendls-btn"><img src="Media/icon.png" data-time="26" alt="Mendls"></button>
+                    <button class="Mendls-btn"><img src="Media/icon.png" data-time="41" alt="Mendls"></button>
+                </div>
+            </div>
+        </section>
+
+        <!--Hero section-->
+        <section class="hero__container flex-column">
+            <div class="hero__block">
+                <h2 class="text-lg">"There are still faint <span class="glimmers-word">glimmers</span> of civilization
+                    left in this barbaric slaughterhouse that was once known as humanity".</h2>
+                <p class="text-md">Gustave H.</p>
+            </div>
+            <div class="wave__container">
+                <div class="pink__wave">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none"
+                        style="display: block; width: 100%; height: auto;">
+                        <defs>
+                            <pattern id="pinkWaveHeroTexture" patternUnits="userSpaceOnUse" width="360" height="360"
+                                patternTransform="scale(1.65)">
+                                <rect width="360" height="360" fill="#fbc5d8"></rect>
+                                <image href="Media/pathern.png" x="0" y="0" width="550" height="550"
+                                    preserveAspectRatio="none" opacity="1"></image>
+                                <image href="Media/natural-paper.png" x="0" y="0" width="360" height="360"
+                                    preserveAspectRatio="none" opacity="0.95"></image>
+                            </pattern>
+                        </defs>
+                        <path fill="url(#pinkWaveHeroTexture)" fill-opacity="1"
+                            d="M0,32L30,48C60,64,120,96,180,122.7C240,149,300,171,360,181.3C420,192,480,192,540,160C600,128,660,64,720,69.3C780,75,840,149,900,197.3C960,245,1020,267,1080,245.3C1140,224,1200,160,1260,128C1320,96,1380,96,1410,96L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="purple__wave">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                        <path fill="#55115a" fill-opacity="1"
+                            d="M0,288L34.3,261.3C68.6,235,137,181,206,144C274.3,107,343,85,411,101.3C480,117,549,171,617,197.3C685.7,224,754,224,823,192C891.4,160,960,96,1029,101.3C1097.1,107,1166,181,1234,208C1302.9,235,1371,213,1406,202.7L1440,192L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <!--Service section-->
+        <section class="service flex-column">
+            <div class="service__tittle">
+                <h2 class="text-lg">
+                    BE SAFE AND SOUND, <br>
+                    <strong> in our </strong><span class="italic"> lodgings...</span> <br>
+                    and left the rest of the world <strong class="burn-word">burn.</strong>
+                </h2>
+            </div>
+            <div class="service__content flex-column">
+                <div class="service__card">
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheMadameDParlor.jpg" alt="TheMadameDParlor">
+                            </div>
+                            <div class="card__text">
+                                <h3>The Madame D's Parlor</h3>
+                                <p>Aristocratic Suite</p>
+                                <p>Our most expensive suite, decorated with Renaissance art replicas. Includes a secret
+                                    safe.</p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheMadameDParlor(living).jpg"
+                                    alt="TheMadameDParlorLiving">
+                            </div>
+                            <div class="card__text">
+                                <p>Price:800€</p>
+                                <p>Amenities: Art Collection, Champagne Service, Private Library.</p>
+                                <button class="book-btn">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheMendl'sSuite.jpg" alt="TheMendl'sSuite">
+                            </div>
+                            <div class="card__text">
+                                <h3>The Mendl's Suite</h3>
+                                <p>Grand Luxury</p>
+                                <p>Drenched in pastel pinks and symmetry, this suite includes a complimentary courtesan
+                                    and views of the funicular.</p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheMendl'sSuite(living).jpg"
+                                    alt="TheMendl'sSuiteLiving">
+                            </div>
+                            <div class="card__text">
+                                <p>Price:650€</p>
+                                <p>Amenities: Private Balcony, Pink Marble Bath, Personal Valet.</p>
+                                <button class="book-btn">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheConciergeMaster.png" alt="TheLobby">
+                            </div>
+                            <div class="card__text">
+                                <h3>The Concierge Master</h3>
+                                <p>Imperial Double</p>
+                                <p>Inspired by Monsieur Gustave H., featuring deep red velvet curtains, a collection of
+                                    L'Air de Panache, and oak furniture.</p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheConciergeMaster(living).png" alt="TheLobbyLiving">
+                            </div>
+                            <div class="card__text">
+                                <p>Price:400€</p>
+                                <p>Amenities: Bakelite Telephone, Silk Robes, Gilded Mirror.</p>
+                                <button class="book-btn">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheZeroObservatory.png" alt="TheLobby">
+                            </div>
+                            <div class="card__text">
+                                <h3>The Zero Observatory</h3>
+                                <p>Superior Single</p>
+                                <p>A modest yet perfectly balanced room at the top of the east wing. Ideal for writers.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheZeroObservatory(living).png" alt="TheLobbyLiving">
+                            </div>
+                            <div class="card__text">
+                                <p>Price:250€</p>
+                                <p>Amenities: Skylight View, Poetry Library, Writing Desk.</p>
+                                <button class="book-btn">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheAlpineRefuge.webp" alt="TheLobby">
+                            </div>
+                            <div class="card__text">
+                                <h3>The Alpine Refuge</h3>
+                                <p>Standard Twin</p>
+                                <p>Cozy and nostalgic, this room offers a 360-degree view of the snow-capped mountains
+                                    of the Republic of Zubrowka.</p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheAlpineRefuge(living).png" alt="TheLobbyLiving">
+                            </div>
+                            <div class="card__text">
+                                <p>Price:180€</p>
+                                <p>Amenities: Mountain View, Wool Blankets, Vintage Radio.</p>
+                                <button class="book-btn">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wave__container">
+                    <div class="white__wave">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                            <path fill="#ffffff" fill-opacity="1"
+                                d="M0,160L30,160C60,160,120,160,180,144C240,128,300,96,360,112C420,128,480,192,540,186.7C600,181,660,107,720,106.7C780,107,840,181,900,213.3C960,245,1020,235,1080,202.7C1140,171,1200,117,1260,112C1320,107,1380,149,1410,170.7L1440,192L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="gold__wave">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                            <path fill="#fac171" fill-opacity="1"
+                                d="M0,64L30,90.7C60,117,120,171,180,192C240,213,300,203,360,176C420,149,480,107,540,106.7C600,107,660,149,720,144C780,139,840,85,900,80C960,75,1020,117,1080,138.7C1140,160,1200,160,1260,144C1320,128,1380,96,1410,80L1440,64L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--Gallery section-->
+        <section class="gallery flex-column">
+            <div class="gallery__block">
+                <div class="gallery__tittle">
+                    <h2 class="text-lg">Discover the <strong>Grand Budapest</strong> <span class="italic">Hotel</span>
+                    </h2>
+                </div>
+                <div class="staff-text">
+                    <h3>Meet <span class="italic">our</span> dedicated staff</h3>
+                    <p>Formed in the Society of the Crossed Keys for the most demanding service.</p>
+                </div>
+                <div class="gallery-image right">
+                    <div class="gallery-frame">
+                        <img src="Media/Concierge.png" alt="Gallery Image 1">
+                    </div>
+                </div>
+                <div class="gallery-image left">
+                    <div class="gallery-frame">
+                        <img src="Media/Mendls.png" alt="Gallery Image 2">
+                    </div>
+                </div>
+                <div class="gallery-image center">
+                    <div class="gallery-frame-center">
+                        <img src="Media/personal.png" alt="Gallery Image 3">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-background flwx-row">
+            <div class="footer-container ">
+                <div class="footer-header">
+                    <div class="footer-tittle">
+                        <h2>The Grand Budapest Hotel</h2>
+                    </div>
+                    <div class="footer-logo">
+                        <img src="Media/BL (2).png" alt="GBH Logo">
+                    </div>
+                </div>
+                <div class="main-contact flex-row">
+                    <div class="contact-item">
+                        <p>Nebelsbad, Republic of Zubrowka</p>
+                    </div>
+                    <div class="contact-item">
+                        <a href="mailto:reservations@grandbudapest.com"
+                            target="_blank">reservations@grandbudapest.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <p>+00 123 456 789</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="footer-nav__social flex-row">
+                        <li class="nav-item"><a>Facebook<i class="ri-facebook-fill"></i></a></li>
+                        <li class="nav-item"><a>Instagram <i class="ri-instagram-line"></i></a></li>
+                        <li class="nav-item"><a>Pinterest<i class="ri-pinterest-line"></i></a></li>
+                    </ul>
+                    <ul class="footer-nav__links flex-row">
+                        <li class="nav-text"><a>Privacy Policy</a></li>
+                        <li class="nav-text"><a>Contact Us</a></li>
+                        <li class="nav-text"><a>Written Complaints</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-signature italic">
+                    <p>Managed by the <span>Society of the Crossed Keys</span></p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

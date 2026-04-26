@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budapest Hotel — Reservas</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="CSS/book-now.css">
+    <script  defer src="JS/book-now.js"></script>
+</head>
+
+<body>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+        <!-- Reemplaza esta URL con la imagen real de tu hotel -->
+        <img class="hero-img" src="Media/night.jpg"
+            alt="Hotel Odisej Mljet">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hotel-stars">★ ★ ★</div>
+            <h1 class="hotel-name">The Grand Budapest<em> Hotel</em></h1>
+            <p class="hotel-subtitle">Wes Anderson</p>
+        </div>
+        <button class="hero-info-btn" onclick="showInfoModal()">
+            <span>ℹ</span> Hotel Info
+        </button>
+    </section>
+
+    <!-- ─── STEPS BAR ─── -->
+    <nav class="steps-bar">
+        <ul>
+            <li class="active"><span class="step-num">1</span> Room Selection</li>
+            <li><span class="step-num">2</span> Extras</li>
+            <li><span class="step-num">3</span> Booking</li>
+        </ul>
+    </nav>
+
+    <!-- ─── SEARCH BAR ─── -->
+    <div class="search-bar">
+        <div class="search-item">
+            <span class="search-icon">🏨</span>
+            <div>
+                <span class="search-label">Hotel</span>
+                <span class="search-value">Budapest Hotel ▾</span>
+            </div>
+        </div>
+
+        <div class="search-item" id="dateSearchItem">
+            <span class="search-icon">📅</span>
+            <div>
+                <span class="search-label">Dates</span>
+                <span class="search-value" id="datesDisplay">Select dates ▾</span>
+            </div>
+        </div>
+
+        <div class="search-item" id="guestsSearchItem" style="position:relative;">
+            <span class="search-icon">👥</span>
+            <div>
+                <span class="search-label">Room and Guests</span>
+                <span class="search-value" id="guestsDisplay">1 room, 1 adult ▾</span>
+            </div>
+            <!-- Guests dropdown -->
+            <div class="guests-dropdown" id="guestsDropdown">
+                <div class="guest-row">
+                    <div>
+                        <div class="guest-label">Adults</div>
+                        <div class="guest-sublabel">18+ years</div>
+                    </div>
+                    <div class="guest-counter">
+                        <button class="counter-btn" id="adultMinus" onclick="changeGuests('adults', -1)"
+                            disabled>−</button>
+                        <span class="counter-val" id="adultsVal">1</span>
+                        <button class="counter-btn" id="adultPlus" onclick="changeGuests('adults', 1)">+</button>
+                    </div>
+                </div>
+                <div class="guest-row">
+                    <div>
+                        <div class="guest-label">Children</div>
+                        <div class="guest-sublabel">0–17 years</div>
+                    </div>
+                    <div class="guest-counter">
+                        <button class="counter-btn" id="childMinus" onclick="changeGuests('children', -1)"
+                            disabled>−</button>
+                        <span class="counter-val" id="childrenVal">0</span>
+                        <button class="counter-btn" id="childPlus" onclick="changeGuests('children', 1)">+</button>
+                    </div>
+                </div>
+                <div class="guest-row">
+                    <div>
+                        <div class="guest-label">Rooms</div>
+                    </div>
+                    <div class="guest-counter">
+                        <button class="counter-btn" id="roomMinus" onclick="changeGuests('rooms', -1)"
+                            disabled>−</button>
+                        <span class="counter-val" id="roomsVal">1</span>
+                        <button class="counter-btn" id="roomPlus" onclick="changeGuests('rooms', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="promo-item">
+            <span>%</span> Promotional Code
+        </div>
+    </div>
+
+    <!-- ─── MAIN ─── -->
+    <main class="main">
+
+        <!-- LEFT -->
+        <div class="booking-left">
+            <div class="no-availability" id="noAvailMsg">
+                No rooms available for the selected dates. Please choose different dates.
+            </div>
+
+            <h2 class="section-title">Select Your Stay</h2>
+            <p class="section-hint">CHECK-IN → CHECK-OUT · Click on two dates</p>
+
+            <!-- CALENDAR -->
+            <div class="calendar-wrapper">
+                <div class="calendar-header">
+                    <button class="cal-nav" id="prevMonthBtn" onclick="changeMonth(-1)">‹</button>
+                    <span class="cal-month-year" id="calMonthYear"></span>
+                    <button class="cal-nav" onclick="changeMonth(1)">›</button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="cal-days-header">
+                        <div class="cal-day-name">Mon</div>
+                        <div class="cal-day-name">Tue</div>
+                        <div class="cal-day-name">Wed</div>
+                        <div class="cal-day-name">Thu</div>
+                        <div class="cal-day-name">Fri</div>
+                        <div class="cal-day-name">Sat</div>
+                        <div class="cal-day-name">Sun</div>
+                    </div>
+                    <div class="cal-dates" id="calDates"></div>
+                </div>
+                <div class="cal-legend">
+                    <div class="legend-item">
+                        <div class="legend-dot selected"></div> Selected
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot range"></div> Period
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot unavail"></div> No available
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATES SUMMARY -->
+            <div class="dates-summary">
+                <div class="date-box">
+                    <div class="date-box-label">Check-in</div>
+                    <div class="date-box-value" id="checkinDisplay"><span class="empty">Not selected</span></div>
+                </div>
+                <div class="date-box">
+                    <div class="date-box-label">Check-out</div>
+                    <div class="date-box-value" id="checkoutDisplay"><span class="empty">Not selected</span></div>
+                </div>
+            </div>
+            <div class="nights-badge" id="nightsBadge" style="display:none;">
+                Stay of <strong id="nightsCount">0</strong> nights
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="booking-right">
+            <div class="room-card">
+                <div class="room-card-header">
+                    <div class="room-select-title">Room 1</div>
+                    <div class="room-select-hint">Select room type</div>
+                </div>
+                <div class="room-options" id="roomOptions">
+                    <div class="room-option" onclick="selectRoom(this, 'The Zero Observatory', 250)" data-price="250">
+                        <div>
+                            <div class="room-option-name">The Madame D's Parlor</div>
+                            <div class="room-option-desc">Aristocratic Suite</div>
+                        </div>
+                        <div class="room-option-price">
+                            <span class="price-amount">€800</span>
+                            <span class="price-night">/ night</span>
+                        </div>
+                    </div>
+                    <div class="room-option" onclick="selectRoom(this, 'The Alpine Refuge', 240)" data-price="240">
+                        <div>
+                            <div class="room-option-name">The Mendl's Suite</div>
+                            <div class="room-option-desc">Grand Luxury</div>
+                        </div>
+                        <div class="room-option-price">
+                            <span class="price-amount">€650</span>
+                            <span class="price-night">/ night</span>
+                        </div>
+                    </div>
+                    <div class="room-option" onclick="selectRoom(this, 'Junior Suite', 320)" data-price="320">
+                        <div>
+                            <div class="room-option-name">The Concierge Master</div>
+                            <div class="room-option-desc">Imperial Double</div>
+                        </div>
+                        <div class="room-option-price">
+                            <span class="price-amount">€400</span>
+                            <span class="price-night">/ night</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-box">
+                <div class="total-row">
+                    <span class="total-label">Room</span>
+                    <span class="total-value" id="totalRoomName">—</span>
+                </div>
+                <div class="total-row">
+                    <span class="total-label">Nights</span>
+                    <span class="total-value" id="totalNights">—</span>
+                </div>
+                <div class="total-row">
+                    <span class="total-label">Price per night</span>
+                    <span class="total-value" id="totalPerNight">—</span>
+                </div>
+                <hr class="total-divider">
+                <div class="total-final-row">
+                    <span class="total-final-label">Total</span>
+                    <span class="total-final-value" id="totalAmount">€0</span>
+                </div>
+                <button class="btn-next" id="nextBtn" disabled onclick="goToNext()">
+                    NEXT
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ─── GUESTS OVERLAY ─── -->
+    <div class="dropdown-overlay" id="guestsOverlay" onclick="closeGuestsDropdown()"></div>
+
+    <!-- ─── INFO MODAL ─── -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal">
+            <div class="modal-icon">🏨</div>
+            <div class="modal-title">Budapest Hotel</div>
+            <div class="modal-text">
+                The Budapest Hotel is located in the heart of the city, offering easy access to all major attractions.<br><br>
+                Check-in: 14:00 · Check-out: 11:00<br>
+                ☎ +00 123 456 789
+            </div>
+            <button class="modal-close" onclick="closeInfoModal()">Close</button>
+        </div>
+    </div>
+</body>
+
+</html>
