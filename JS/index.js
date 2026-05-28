@@ -5,6 +5,7 @@ const video = document.getElementById("gbhvideo");
 const buttons = document.querySelectorAll(".Mendls-btn");
 const header = document.querySelector("header");
 const navToggle = document.querySelector(".nav-toggle");
+const navBackdrop = document.querySelector(".nav-backdrop");
 const navIcon = navToggle ? navToggle.querySelector("i") : null;
 const navLinks = document.querySelectorAll("#primary-navigation a");
 
@@ -20,12 +21,32 @@ buttons.forEach((button) => {
     button.addEventListener("click", changeVideoTime);
 }); 
 
+// Menu toggle para dispositivos móviles y tablets
+
 const syncNavToggle = () => {
 	if (!header || !navToggle || !navIcon) {
 		return;
 	}
 
 	const isOpen = header.classList.contains("nav-open");
+	const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+	const navigation = document.querySelector("#primary-navigation");
+
+	if (navigation && isMobile) {
+		navigation.style.display = isOpen ? "flex" : "none";
+	}
+
+	if (navBackdrop && isMobile) {
+		navBackdrop.style.display = isOpen ? "block" : "none";
+	}
+
+	if (header && isMobile) {
+		const drawerShadow = document.querySelector(".drawer-shadow");
+		if (drawerShadow) {
+			drawerShadow.style.display = isOpen ? "block" : "none";
+		}
+	}
+
 	navToggle.setAttribute("aria-expanded", String(isOpen));
 	navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
 	navIcon.className = isOpen ? "ri-close-line" : "ri-menu-3-line";
@@ -34,8 +55,29 @@ const syncNavToggle = () => {
 if (header && navToggle) {
 	navToggle.addEventListener("click", () => {
 		header.classList.toggle("nav-open");
+		if (window.matchMedia("(max-width: 1024px)").matches) {
+			const navigation = document.querySelector("#primary-navigation");
+			const isOpen = header.classList.contains("nav-open");
+			if (navigation) {
+				navigation.style.display = isOpen ? "flex" : "none";
+			}
+			if (navBackdrop) {
+				navBackdrop.style.display = isOpen ? "block" : "none";
+			}
+			const drawerShadow = document.querySelector(".drawer-shadow");
+			if (drawerShadow) {
+				drawerShadow.style.display = isOpen ? "block" : "none";
+			}
+		}
 		syncNavToggle();
 	});
+
+	if (navBackdrop) {
+		navBackdrop.addEventListener("click", () => {
+			header.classList.remove("nav-open");
+			syncNavToggle();
+		});
+	}
 
 	navLinks.forEach((link) => {
 		link.addEventListener("click", () => {
@@ -53,10 +95,15 @@ if (header && navToggle) {
 		}
 	});
 
+	window.addEventListener("keydown", (event) => {
+		if (event.key === "Escape") {
+			header.classList.remove("nav-open");
+			syncNavToggle();
+		}
+	});
+
 	syncNavToggle();
 }
-
-
 
 
 // typewriter effect en el título
