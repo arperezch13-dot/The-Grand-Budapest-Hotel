@@ -14,8 +14,7 @@
 
         let guests = { adults: 1, children: 0, rooms: 1 };
 
-        // ─── UNAVAILABLE DATES (ejemplo — modifica según tu disponibilidad real) ───
-        // Formato: 'YYYY-MM-DD'
+        // ─── UNAVAILABLE DATES ─── 
         const unavailableDates = new Set([
             formatDate(addDays(today, 3)),
             formatDate(addDays(today, 4)),
@@ -280,24 +279,24 @@
             document.querySelector('#infoModal .modal-title').textContent = '¡Reserva lista para confirmar!';
             document.querySelector('#infoModal .modal-text').innerHTML =
                 `<strong>${selectedRoom}</strong><br>
-     ${formatDisplay(checkIn)} → ${formatDisplay(checkOut)}<br>
-     ${nights} noche${nights > 1 ? 's' : ''} · ${guests.adults} adulto${guests.adults > 1 ? 's' : ''}
-     ${guests.children > 0 ? ' · ' + guests.children + ' niño' + (guests.children > 1 ? 's' : '') : ''}<br><br>
-     <strong style="font-size:24px;color:#2d4a3e;">Total: €${total}</strong><br><br>
-     Aquí continuaría con la selección de extras y el formulario de pago.`;
+        ${formatDisplay(checkIn)} → ${formatDisplay(checkOut)}<br>
+        ${nights} noche${nights > 1 ? 's' : ''} · ${guests.adults} adulto${guests.adults > 1 ? 's' : ''}
+        ${guests.children > 0 ? ' · ' + guests.children + ' niño' + (guests.children > 1 ? 's' : '') : ''}<br><br>
+        <strong style="font-size:24px;color:#2d4a3e;">Total: €${total}</strong><br><br>
+        Aquí continuaría con la selección de extras y el formulario de pago.`;
             document.querySelector('#infoModal .modal-close').textContent = 'Continuar';
             document.getElementById('infoModal').classList.add('open');
         }
 
         function showInfoModal() {
             document.querySelector('#infoModal .modal-icon').textContent = '🏨';
-            document.querySelector('#infoModal .modal-title').textContent = 'Hotel Odisej Mljet';
+            document.querySelector('#infoModal .modal-title').textContent = 'The grand Budapest Hotel';
             document.querySelector('#infoModal .modal-text').innerHTML =
                 `Situado en la bahía de Pomena, en el corazón del Parque Nacional de Mljet,
-     el Hotel Odisej ofrece una experiencia única rodeada de naturaleza mediterránea,
-     aguas cristalinas y pinares centenarios.<br><br>
-     Check-in: 14:00 &nbsp;·&nbsp; Check-out: 11:00<br>
-     ☎ +385 20 362 111`;
+        el Hotel Odisej ofrece una experiencia única rodeada de naturaleza mediterránea,
+        aguas cristalinas y pinares centenarios.<br><br>
+        Check-in: 14:00 &nbsp;·&nbsp; Check-out: 11:00<br>
+        ☎ +385 20 362 111`;
             document.querySelector('#infoModal .modal-close').textContent = 'Cerrar';
             document.getElementById('infoModal').classList.add('open');
         }

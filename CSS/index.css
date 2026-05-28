@@ -17,7 +17,13 @@
     box-sizing: border-box;
 }
 
-img {
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+    img {
     
     max-width: 100%;
     width: 10rem;
@@ -34,10 +40,6 @@ a {
     text-decoration: none;
     color: inherit;
 
-}
-
-body {
-    overflow-x: hidden;
 }
 
 :root {
@@ -95,7 +97,7 @@ body {
 
 .glimmers-word:hover {
     color: #ffffff;
-    text-shadow: 0 0 6px #fff6b3, 0 0 14px #ffd86b, 0 0 24px #ffb347;
+    text-shadow: 0 0 0.375rem #fff6b3, 0 0 0.875rem #ffd86b, 0 0 1.5rem #ffb347;
 }
 
 .text-md {
@@ -112,8 +114,6 @@ body {
     font: var(--f-body-xs);
 
 }
-
-
 
 .link {
     font: var(--f-body-xs);
@@ -132,19 +132,28 @@ body {
 
 }
 
+/* Header */
+
 header {
     position: absolute;
     width: 100%;
     z-index: 2;
+    align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
 
     img {
         height: auto;
-        margin-top: -2px;
-        margin-left: -2px;
+        margin-top: -0.125rem;
+        margin-left: -0.125rem;
 
     
         
+    }
+
+    nav {
+        position: relative;
     }
 
     ul { 
@@ -153,7 +162,7 @@ header {
         flex-direction: row;
         align-items: center;
         gap: var(--s-sm);
-        padding: var(--s-md) var(--s-md);
+        padding: 0;
 
         li {
 
@@ -162,17 +171,37 @@ header {
             transition: border-bottom 0.2s ease;
             }
             a:hover {
-            border-bottom: 2px solid #ffffff; /* Cambia el color y el grosor de la línea */
+            border-bottom: 0.125rem solid #ffffff; /* Cambia el color y el grosor de la línea */
             
             }
         }
     }
+
+    .nav-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border: 0;
+        border-radius: 62.4375rem;
+        background: rgba(85, 17, 90, 0.82);
+        color: var(--c-light);
+        cursor: pointer;
+        box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-toggle i {
+        font-size: 1.5rem;
+        line-height: 1;
+    }
 }
 
+/* Carrousel */
 
 .carrousel {
 
-    width: 100vw; 
+    width: 100%; 
     overflow: hidden;
     margin: 0 auto;
     padding: 0;
@@ -185,7 +214,6 @@ header {
         width: 100%;
         height: 100vh;
         overflow: hidden;
-        cursor: pointer;
         contain: content; /* Mejora el rendimiento al indicar que el contenedor no afecta a otros elementos */
         position: relative;
         z-index: 2;
@@ -219,35 +247,55 @@ header {
         letter-spacing: 0.150em;
         animation: reveal 4s cubic-bezier(0.77, 0, 0.175, 1);
         }
+
+        h1::before, h1::after {
+        content: "◈";    
+        color: var(--c-light);
+    
+    }
+
     }
 
     & .carrousel-control {
 
         position: absolute;
-        right: 20px;
+        right: 1.25rem;
         bottom: 1rem;
         z-index: 4;
         gap: var(--s-sm);
         padding-right: 1rem;
 
-    }
 
         .Mendls-btn {
-        background: transparent;
-        padding: .25rem;
-        cursor: pointer;
+            background: transparent;
+            padding: 0;
+            border: 0;
+            cursor: pointer;
+            box-shadow: none;
+            appearance: none;
 
-            img 
-            {
-                width: 1.5rem;
-                height: 1.5rem;
+            img {
+            display: block;
+            width: 2rem;
+            height: 2rem;
+            border: 0;
+            border-radius: 3rem;
+            box-shadow: none;
+            }
+        }
+
+
+        .Mendls-btn:focus,
+        .Mendls-btn:active {
+            outline: none;
+            box-shadow: none;
             }
 
         }
 
+        
     }
 }
-
 
     .carrousel__container::before {
     content: "";
@@ -255,21 +303,15 @@ header {
     z-index: 1;
     top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(67, 63, 63, 0.545); /* Capa negra al 30% de opacidad */
-    }
-
-
-    h1::before, h1::after {
-    content: "◈";    
-    display: block;
-
-    }
+    } 
 
 
 
+/* Hero Section */
 
 .hero__container {
 
-    width: 100vw;
+    width: 100%;
     height: auto;
     position: relative;
     z-index: 1;
@@ -365,8 +407,11 @@ header {
 
 }
 
+/* Service Section */
+
+
 .service {
-    width: 100vw;
+    width: 100%;
     background-color: var(--c-light);
     position: relative;
     z-index: 0;
@@ -474,7 +519,7 @@ header {
                         
                             .room {
                                 position: absolute;
-                                inset: 7px;
+                                inset: 0.4375rem;
                                 display: block;
                                 width: calc(100% - 0.875rem);
                                 height: calc(100% - 0.875rem);
@@ -570,7 +615,7 @@ header {
     }
 
     
-    /* Efecto de volteo para las tarjetas de servicio */
+    /* Efecto de  para las tarjetas de servicio */
 
     .flip-card :is(.card__front, .card__back) :is(.hexagon, .card__text) {
         backface-visibility: hidden;
@@ -624,7 +669,7 @@ header {
 }
 
 .gallery {
-    width: 100vw;
+    width: 100%;
     background-color: var(--c-purple);
     position: relative;
     overflow: hidden;
@@ -727,8 +772,8 @@ header {
                 background: #fff; 
                 border-radius: 1.25rem; 
                 overflow: hidden;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-                border: 1px solid rgba(107, 114, 98, 0.2);
+                box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.2);
+                border: 0.0625rem solid rgba(107, 114, 98, 0.2);
 
 
                 & img {
@@ -758,9 +803,9 @@ header {
                         width: 100%;
                         height: auto;
                         object-fit: cover;
-                        border-radius: 20px;
-                        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-                        border: 1px solid rgba(107, 114, 98, 0.2);
+                        border-radius: 1.25rem;
+                        box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.2);
+                        border: 0.0625rem solid rgba(107, 114, 98, 0.2);
                         
                     }
                 }
@@ -775,19 +820,19 @@ footer {
 
     .footer-background{
 
-        width: 100vw;
+        width: 100%;
         height: 85vh;
         background-color: var(--c-pink);
         background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
         position: relative;
         z-index: 0;
         gap: var(--s-sm);
-        padding: 150px 0 110px 0;
+        padding: 9.375rem 0 6.875rem 0;
 
 
         & .footer-container {
 
-            width: 100vw;
+            width: 100%;
             padding: 0 2.5rem;
 
             .footer-header {
@@ -840,7 +885,7 @@ footer {
             gap: var(--s-lg);
             display: grid;
             grid-template-columns: 1.16fr 1fr 1.16fr;
-            border-bottom: 1px solid var(--c-purple);
+            border-bottom: 0.0625rem solid var(--c-purple);
 
 
                 .contact-item {
@@ -883,7 +928,7 @@ footer {
                     gap: 10rem;
                     list-style: none;
                     text-align: center;
-                    border-bottom: 1px solid var(--c-purple);
+                    border-bottom: 0.0625rem solid var(--c-purple);
                     
                     .nav-item {
 
@@ -945,7 +990,7 @@ footer {
                 span {
                 
                     font-weight: 700;
-                    letter-spacing: 2px;
+                    letter-spacing: 0.125rem;
                     text-transform: uppercase;
                 }
                 
@@ -995,7 +1040,7 @@ footer {
 
     .hero__container .hero__block {
         min-height: 95vh;
-        padding: 24% 10%;
+        padding: 24% 0;
     }
 
     .service .service__content .service__card .flip-card {
@@ -1025,15 +1070,50 @@ footer {
 
 @media (max-width: 1024px) {
 
-    header .logo {
+    header {
+
+        .logo {
         width: 8rem;
     }
 
+        .nav-toggle {
+        display: inline-flex;
+        transform: translateY(-0.45rem);
+    }
+
+        nav {
+        margin-left: auto;
+    }
+
+    }
+    
+
     header ul {
-        gap: 0.55rem;
-        padding: 0.9rem;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        right: 0;
+        min-width: 16rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1rem 1.1rem;
+        border-radius: 1rem;
+        background: rgba(85, 17, 90, 0.28);
+        backdrop-filter: blur(0.75rem);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.22);
+        opacity: 0.55;
+        visibility: hidden;
+        transform: translateY(-0.5rem);
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        z-index: 20;
+    }
+
+    header.nav-open ul {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
     }
 
     .link {
@@ -1052,7 +1132,7 @@ footer {
 
     .hero__container .hero__block {
         min-height: 90vh;
-        padding: 30% 10% 24%;
+        padding: 0;
     }
 
     .hero__container .wave__container .purple__wave {
@@ -1060,7 +1140,7 @@ footer {
     }
 
     .service .service__tittle {
-        padding: 12% 8% 9%;
+        padding: 12% 0 9%;
         margin-top: -6%;
     }
 
@@ -1137,7 +1217,7 @@ footer {
     }
 
     footer .footer-background .footer-container {
-        padding: 0 1.4rem;
+        padding: 0 0.75rem;
     }
 
     footer .footer-background .footer-container .footer-header,
@@ -1168,21 +1248,28 @@ footer {
 @media (max-width: 760px) {
 
     header {
-        align-items: flex-start;
+        padding: 0.75rem 0.75rem;
     }
 
     header .logo {
         width: 6rem;
     }
 
+    header .nav-toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+        transform: translateY(-0.35rem);
+        
+    }
+
     header ul {
-        max-width: 76%;
-        gap: 0.35rem;
-        padding: 0.7rem;
+        min-width: min(18rem, calc(100vw - 2rem));
+        right: 0;
+        gap: 0.25rem;
     }
 
     .link {
-        font-size: 0.84rem;
+        font-size: 0.92rem;
     }
 
     .carrousel .carrousel__container {
@@ -1196,7 +1283,7 @@ footer {
 
     .hero__container .hero__block {
         min-height: 85vh;
-        padding: 40% 8% 26%;
+        padding: 40% 0 26%;
     }
 
     .hero__container .wave__container .purple__wave {
@@ -1205,7 +1292,7 @@ footer {
 
     .service .service__tittle {
         margin-top: -1rem;
-        padding: 16% 8% 10%;
+        padding: 16% 0 10%;
     }
 
     .service .service__tittle h2 .italic {

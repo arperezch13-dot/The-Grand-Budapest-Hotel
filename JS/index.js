@@ -3,6 +3,10 @@
 // Current time event listener para darle funcionalidad a los botones del carrousel
 const video = document.getElementById("gbhvideo");
 const buttons = document.querySelectorAll(".Mendls-btn");
+const header = document.querySelector("header");
+const navToggle = document.querySelector(".nav-toggle");
+const navIcon = navToggle ? navToggle.querySelector("i") : null;
+const navLinks = document.querySelectorAll("#primary-navigation a");
 
 const changeVideoTime = (event) => {
     const button = event.currentTarget;
@@ -15,6 +19,42 @@ const changeVideoTime = (event) => {
 buttons.forEach((button) => {
     button.addEventListener("click", changeVideoTime);
 }); 
+
+const syncNavToggle = () => {
+	if (!header || !navToggle || !navIcon) {
+		return;
+	}
+
+	const isOpen = header.classList.contains("nav-open");
+	navToggle.setAttribute("aria-expanded", String(isOpen));
+	navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+	navIcon.className = isOpen ? "ri-close-line" : "ri-menu-3-line";
+};
+
+if (header && navToggle) {
+	navToggle.addEventListener("click", () => {
+		header.classList.toggle("nav-open");
+		syncNavToggle();
+	});
+
+	navLinks.forEach((link) => {
+		link.addEventListener("click", () => {
+			if (window.matchMedia("(max-width: 1024px)").matches) {
+				header.classList.remove("nav-open");
+				syncNavToggle();
+			}
+		});
+	});
+
+	window.addEventListener("resize", () => {
+		if (!window.matchMedia("(max-width: 1024px)").matches) {
+			header.classList.remove("nav-open");
+			syncNavToggle();
+		}
+	});
+
+	syncNavToggle();
+}
 
 
 
