@@ -144,6 +144,14 @@ document.addEventListener("DOMContentLoaded", () => {
 const heroSection = document.querySelector(".hero__container");
 const heroTitle = document.querySelector(".hero__container .hero__block h2");
 const glimmersWord = document.querySelector(".hero__container .glimmers-word");
+const gallerySection = document.querySelector(".gallery");
+const galleryBlock = document.querySelector(".gallery__block");
+const leftPhoto = document.querySelector(".gallery-image.left");
+const rightPhoto = document.querySelector(".gallery-image.right");
+const centerText = document.querySelector(".staff-text");
+const pinkWave = document.querySelector(".pink__wave");
+const purpleWave = document.querySelector(".purple__wave");
+let scrollFrameId = null;
 
 const splitHeroTextIntoLetters = (root) => {
 	const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -177,60 +185,155 @@ if (heroSection && heroTitle) {
 	splitHeroTextIntoLetters(heroTitle);
 
 	const heroLetters = Array.from(heroTitle.querySelectorAll(".hero-letter"));
+	let heroStart = heroSection.offsetTop;
+	let heroScrollRange = Math.max(heroSection.offsetHeight * 0.18, window.innerHeight * 0.35, 1);
+	let galleryStart = gallerySection ? gallerySection.offsetTop : 0;
+	let galleryScrollRange = gallerySection ? Math.max(gallerySection.offsetHeight - window.innerHeight, 1) : 1;
+	let activeHeroLetters = 0;
+	let highlightedGlimmers = false;
+	let lastHeroStep = -1;
+
+	const updateHeroMetrics = () => {
+		heroStart = heroSection.offsetTop;
+		heroScrollRange = Math.max(heroSection.offsetHeight * 0.18, window.innerHeight * 0.35, 1);
+	};
+
+	const updateGalleryMetrics = () => {
+		if (!gallerySection) {
+			return;
+		}
+
+		galleryStart = gallerySection.offsetTop;
+		galleryScrollRange = Math.max(gallerySection.offsetHeight - window.innerHeight, 1);
+	};
+
+	const updateLayoutMetrics = () => {
+		updateHeroMetrics();
+		updateGalleryMetrics();
+	};
 
 	const updateHeroLetters = () => {
-		const heroStart = heroSection.offsetTop;
-		const scrollRange = Math.max(heroSection.offsetHeight * 0.18, window.innerHeight * 0.35, 1);
-		const progress = Math.min(Math.max((window.scrollY - heroStart) / scrollRange, 0), 1);
-		const activeLetters = Math.ceil(progress * heroLetters.length);// Calcula cuántas letras deben estar activas según el progreso. 
+		const progress = Math.min(Math.max((window.scrollY - heroStart) / heroScrollRange, 0), 1);
+		const heroStep = Math.round(progress * 12);
 
-		heroLetters.forEach((letter, index) => {
-			letter.classList.toggle("is-active", index < activeLetters); // Activa las letras según el progreso.
-		});
+		if (heroStep !== lastHeroStep) {
+			const nextActiveLetters = Math.ceil((heroStep / 12) * heroLetters.length);
 
-		if (glimmersWord) {
-			glimmersWord.classList.toggle("is-highlighted", progress >= 1);
+			if (nextActiveLetters > activeHeroLetters) {
+				for (let index = activeHeroLetters; index < nextActiveLetters; index += 1) {
+					heroLetters[index]?.classList.add("is-active");
+				}
+			} else if (nextActiveLetters < activeHeroLetters) {
+				for (let index = nextActiveLetters; index < activeHeroLetters; index += 1) {
+					heroLetters[index]?.classList.remove("is-active");
+				}
+			}
+
+			activeHeroLetters = nextActiveLetters;
+			lastHeroStep = heroStep;
+		}
+
+		const shouldHighlightGlimmers = progress >= 0.08;
+		if (glimmersWord && shouldHighlightGlimmers !== highlightedGlimmers) {
+			glimmersWord.classList.toggle("is-highlighted", shouldHighlightGlimmers);
+			highlightedGlimmers = shouldHighlightGlimmers;
 		}
 	};
 
-	window.addEventListener("scroll", updateHeroLetters, { passive: true });
-	window.addEventListener("resize", updateHeroLetters);
-	updateHeroLetters();
+	const updateGalleryScroll = () => {
+		if (!gallerySection || !galleryBlock || !leftPhoto || !rightPhoto || !centerText) {
+			return;
+		}
+
+		const scrollY = window.scrollY;
+		const sectionTop = galleryStart;
+		const sectionHeight = galleryScrollRange;
+
+		if (scrollY > sectionTop && scrollY < (sectionTop + sectionHeight)) {
+			const progress = (scrollY - sectionTop) / sectionHeight;
+			leftPhoto.style.transform = `translateX(-${progress * 100}%)`;
+			rightPhoto.style.transform = `translateX(${progress * 100}%)`;
+
+			const textProgress = Math.min(Math.max((progress - 0.1) / 0.15, 0), 1);
+			centerText.style.opacity = String(textProgress);
+			centerText.style.transform = `translateX(-50%) scale(${0.9 + (0.1 * textProgress)})`;
+		} else if (scrollY < sectionTop) {
+			leftPhoto.style.transform = "translateX(0)";
+			rightPhoto.style.transform = "translateX(0)";
+			centerText.style.opacity = "0";
+			centerText.style.transform = "translateX(-50%) scale(0.9)";
+		}
+	};
+
+	const updateScrollEffects = () => {
+		scrollFrameId = null;
+		updateHeroLetters();
+		updateGalleryScroll();
+	};
+
+	const scheduleScrollEffects = () => {
+		if (scrollFrameId !== null) {
+			return;
+		}
+
+		scrollFrameId = window.requestAnimationFrame(updateScrollEffects);
+	};
+
+	window.addEventListener("scroll", scheduleScrollEffects, { passive: true });
+	window.addEventListener("resize", () => {
+		updateLayoutMetrics();
+		scheduleScrollEffects();
+	});
+	updateLayoutMetrics();
+	scheduleScrollEffects();
 }
 
 
-// Scroll animation para la sección del staff
+// Scroll animation para las olas en la sección hero
 
-window.addEventListener('scroll', () => {
+if (pinkWave && purpleWave) {
+	let waveFrameId = null;
+	let pinkX = 0;
+	let purpleX = 0;
+	let lastWaveScrollY = window.scrollY;
+	let pendingDelta = 0;
+	const WAVE_LIMIT = 48;
+	const WAVE_SCROLL_FACTOR = 0.22;
 
-    const revealStage = document.querySelector('.gallery');
-    const stickyContainer = document.querySelector('.gallery__block');
-    const leftPhoto = document.querySelector('.gallery-image.left');
-    const rightPhoto = document.querySelector('.gallery-image.right');
-    const centerText = document.querySelector('.staff-text');
+	const updateWaveScroll = () => {
+		waveFrameId = null;
 
-	if (!revealStage || !stickyContainer || !leftPhoto || !rightPhoto || !centerText) {
-		return;
-	}
+		if (pendingDelta === 0) {
+			return;
+		}
 
-    let scrollY = window.scrollY;
-    let sectionTop = revealStage.offsetTop;
-    let sectionHeight = revealStage.offsetHeight - window.innerHeight; 
-    if (scrollY > sectionTop && scrollY < (sectionTop + sectionHeight)) {
+		const waveShift = pendingDelta * WAVE_SCROLL_FACTOR;
+		pendingDelta = 0;
 
-        let progress = (scrollY - sectionTop) / sectionHeight; // Calcula el progreso del scroll dentro de la sección (0 a 1)
+		pinkX = Math.max(-WAVE_LIMIT, Math.min(WAVE_LIMIT, pinkX + waveShift));
+		purpleX = Math.max(-WAVE_LIMIT, Math.min(WAVE_LIMIT, purpleX + waveShift));
 
-        leftPhoto.style.transform = `translateX(-${progress * 100}%)`;
-        rightPhoto.style.transform = `translateX(${progress * 100}%)`;
+		pinkWave.style.transform = `translate3d(${pinkX}px, 0, 0)`;
+		purpleWave.style.transform = `translate3d(${purpleX}px, 0, 0)`;
+	};
 
-		const textProgress = Math.min(Math.max((progress - 0.1) / 0.15, 0), 1);
-		centerText.style.opacity = String(textProgress);
-		centerText.style.transform = `translateX(-50%) scale(${0.9 + (0.1 * textProgress)})`; // Escala el texto de 0.9 a 1.0 a medida que se vuelve visible
-    } else if (scrollY < sectionTop) {
-        leftPhoto.style.transform = `translateX(0)`;
-        rightPhoto.style.transform = `translateX(0)`;
-        centerText.style.opacity = "0";
-		centerText.style.transform = "translateX(-50%) scale(0.9)"; // Asegura que el texto esté en su estado inicial cuando no se ha scrolleado a la sección
-    }
-})
+	const scheduleWaveScroll = () => {
+		if (waveFrameId !== null) {
+			return;
+		}
 
+		waveFrameId = window.requestAnimationFrame(updateWaveScroll);
+	};
+
+	window.addEventListener("resize", () => {
+		lastWaveScrollY = window.scrollY;
+		scheduleWaveScroll();
+	});
+	window.addEventListener("scroll", () => {
+		const currentScrollY = window.scrollY;
+		pendingDelta += currentScrollY - lastWaveScrollY;
+		lastWaveScrollY = currentScrollY;
+		scheduleWaveScroll();
+	}, { passive: true });
+	scheduleWaveScroll();
+}
