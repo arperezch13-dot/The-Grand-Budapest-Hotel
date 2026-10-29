@@ -372,7 +372,7 @@ body.nav-open .nav-toggle__lines span:nth-child(3) {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("../Media/pathern.png") center / 14rem;
+    background: url("../Media/pathern.webp") center / 14rem;
     opacity: 0.05;
     pointer-events: none;
     border-radius: inherit;
@@ -901,7 +901,7 @@ body.nav-open .nav-backdrop {
         align-items: center;
         text-align: center;
         background-color: var(--c-pink);
-        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"),url('../Media/pathern.png');
+        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"),url('../Media/pathern.webp');
         padding: 20rem 16rem 13rem 16rem;
         min-height: 100%;
         z-index: 2;

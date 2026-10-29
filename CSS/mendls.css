@@ -438,7 +438,7 @@ html {
 .mendls-wrap {
     padding: var(--section-top) 5rem var(--section-bottom);
     background-color: var(--c-pink);
-    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"),url('../Media/pathern.png');
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"),url('../Media/pathern.webp');
 }
 
 .mendls-wrap__head {
