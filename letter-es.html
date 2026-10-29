@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta a M. Gustave · The Grand Budapest Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/letter.css">
+    <script defer src="JS/index.js"></script>
+    <script defer src="JS/letter.js"></script>
+</head>
+
+<body>
+    <!-- Header Fijo Superior: barra flotante -->
+    <header class="flex-row">
+        <!-- Botón del menú: círculo rosa -->
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-controls="drawerPanel" aria-expanded="false">
+            <span class="nav-toggle__lines" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="nav-toggle__label">Menú</span>
+        </button>
+
+        <!-- Logo Central -->
+        <a class="logo-link" href="index-es.html" aria-label="The Grand Budapest Hotel — Inicio">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="logo-name">The Grand Budapest Hotel</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+        </a>
+
+        <!-- Switcher de Idioma (EN/ES) -->
+        <div class="lang-switch">
+            <a href="letter.html" class="lang-pill">EN</a>
+            <a href="letter-es.html" class="lang-pill active">ES</a>
+        </div>
+    </header>
+
+    <!-- Menú Desplegable Lateral (Stitch Drawer) -->
+    <aside class="drawer-panel" id="drawerPanel" aria-hidden="true">
+        <!-- Cabecera del Drawer con Crest de las Llaves Cruzadas -->
+        <div class="drawer-header">
+            <div class="society-badge">
+                <div class="badge-icon">
+                    <img src="Media/BL (2).png" alt="Logotipo de la Sociedad de las Llaves Cruzadas">
+                </div>
+                <div class="badge-info">
+                    <p class="badge-tag">Confrérie des Clés d'Or</p>
+                    <h3>Sociedad de las Llaves Cruzadas</h3>
+                    <p class="badge-sub">Service Universel • Est. 1932</p>
+                </div>
+            </div>
+            <button class="drawer-close-btn" type="button" aria-label="Cerrar menú">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- Barra de Idiomas dentro del Drawer -->
+        <div class="drawer-lang-bar">
+            <span class="lang-label">Idioma</span>
+            <div class="lang-pills-group">
+                <a href="letter-es.html" class="pill active">Español</a>
+                <a href="letter.html" class="pill">Inglés</a>
+            </div>
+        </div>
+
+        <!-- Lista de Navegación Principal -->
+        <nav>
+            <ul id="primary-navigation" class="drawer-menu">
+                <li>
+                    <a class="link nav-card" href="mendls-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-restaurant-2-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title"> Pastelería Mendl's</span>
+                                <span class="card-desc">Courtesan au Chocolat & Pâtisserie</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="suites-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-hotel-bed-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Suites y tarifas</span>
+                                <span class="card-desc">Habitaciones 180€ — 800€</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="letter-es.html" aria-current="page">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-mail-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Carta a M. Gustave</span>
+                                <span class="card-desc">Conserje Privé y telegramas</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="online-check-in-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-key-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Check-in online</span>
+                                <span class="card-desc">Funicular y billete alpino</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- Filigrana decorativa -->
+        <div class="drawer-flourish" aria-hidden="true">
+            <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true">
+                <path d="M1 5q7-7 14 0t14 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+        </div>
+
+        <!-- Pie del Drawer: CTA Dorado y Nota Telegrafiada -->
+        <div class="drawer-footer">
+            <a class="book-now-btn" href="book-now-es.html">
+                <i class="ri-calendar-event-line"></i>
+                <span> Reservar</span>
+            </a>
+            <div class="telegraph-box">
+                <div class="freq-line">
+                    <span class="pulse-dot"></span>
+                    <span>TELEGRAMA: 442.8 kHz • NEBELSBAD</span>
+                </div>
+                <p class="quote">“El secreto está en la cortesía impecable, el aroma de L'Air de Panache y una discreción inquebrantable.”</p>
+                <div class="stamp-line">
+                    <span>◈ REGISTRE NO. 8492 • SOCIÉTÉ ANONYME 1932 ◈</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay Sombreado con Blur -->
+    <div class="nav-backdrop" aria-hidden="true"></div>
+
+    <main class="letter">
+
+        <!-- Hoja doble abierta: página izquierda (datos) + página derecha (formulario) -->
+        <form class="letter-sheet reveal" id="letterForm" novalidate>
+
+            <!-- ===== PÁGINA IZQUIERDA ===== -->
+            <div class="letter-page letter-page--left">
+                <div class="letter-crest" aria-hidden="true">
+                    <strong>1932</strong>
+                    <span>Est.</span>
+                </div>
+                <p class="letter-typed">República de Zubrowka</p>
+                <h1 class="letter-title">Carta a Monsieur Gustave H.</h1>
+                <p class="letter-society">Sociedad de las Llaves Cruzadas</p>
+
+                <figure class="letter-quote">
+                    <blockquote>&ldquo;Para ser franco, el mundo me parece un lugar bastante gris sin un exquisito gesto de vez en cuando.&rdquo;</blockquote>
+                    <figcaption>&mdash; M. Gustave H. &middot; Conserje jefe</figcaption>
+                </figure>
+
+                <dl class="letter-facts">
+                    <div><dt>Código postal</dt><dd>NZ-3200-ZUB</dd></div>
+                    <div><dt>Torre del funicular</dt><dd>442.8 kHz &middot; B</dd></div>
+                    <div><dt>Hora del té</dt><dd>16:30 &mdash; 18:00</dd></div>
+                </dl>
+
+                <div class="letter-ps">
+                    <p class="letter-ps__label">P.D. &middot; Pastelería Mendl&rsquo;s</p>
+                    <p>Los pedidos realizados antes de las 11:00 llegan en cajas azul cielo con un lazo de seda.</p>
+                </div>
+            </div>
+
+            <!-- Pliegue central -->
+            <div class="letter-fold" aria-hidden="true"></div>
+
+            <!-- ===== PÁGINA DERECHA ===== -->
+            <div class="letter-page letter-page--right">
+                <div class="letter-stamp" aria-hidden="true">
+                    <span>Correo Mendl&rsquo;s</span>
+                    <strong>25 km</strong>
+                </div>
+
+                <p class="letter-typed" id="letterDate">Nebelsbad</p>
+                <p class="letter-salute">Estimado Monsieur Gustave H.,</p>
+
+                <div class="letter-fields">
+                    <div class="field">
+                        <label class="field__label" for="guestTitle">Tratamiento</label>
+                        <select class="field__input" id="guestTitle" name="title">
+                            <option>Baronesa</option>
+                            <option>Barón</option>
+                            <option>Madame</option>
+                            <option>Monsieur</option>
+                            <option>Condesa</option>
+                            <option>Conde</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="guestName">Nombre del huésped</label>
+                        <input class="field__input" id="guestName" name="name" type="text" autocomplete="name" placeholder="Celine Jacqueline Berenger" required>
+                        <p class="field__error" id="guestNameError" hidden>Por favor, firme con su nombre.</p>
+                    </div>
+                    <div class="field field--wide">
+                        <label class="field__label" for="guestSuite">Suite o residencia de origen</label>
+                        <input class="field__input" id="guestSuite" name="suite" type="text" placeholder="Suite Madame D, tercera planta" required>
+                        <p class="field__error" id="guestSuiteError" hidden>Díganos dónde encontrarle.</p>
+                    </div>
+                </div>
+
+                <fieldset class="letter-reasons">
+                    <legend class="field__label">Motivo del despacho</legend>
+                    <div class="letter-reasons__list">
+                        <label class="reason">
+                            <input class="reason__input" type="radio" name="reason" value="L&rsquo;Air de Panache" checked>
+                            <span class="reason__chip">L&rsquo;Air de Panache</span>
+                        </label>
+                        <label class="reason">
+                            <input class="reason__input" type="radio" name="reason" value="Reserva de suite">
+                            <span class="reason__chip">Reserva de suite</span>
+                        </label>
+                        <label class="reason">
+                            <input class="reason__input" type="radio" name="reason" value="Llaves Cruzadas">
+                            <span class="reason__chip">Llaves Cruzadas</span>
+                        </label>
+                        <label class="reason">
+                            <input class="reason__input" type="radio" name="reason" value="Pedido de Mendl&rsquo;s">
+                            <span class="reason__chip">Pedido de Mendl&rsquo;s</span>
+                        </label>
+                        <label class="reason">
+                            <input class="reason__input" type="radio" name="reason" value="Elogio o queja">
+                            <span class="reason__chip">Elogio o queja</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="field letter-body">
+                    <label class="field__label" for="guestMessage">Su mensaje</label>
+                    <textarea class="letter-lines" id="guestMessage" name="message" rows="6" maxlength="600" placeholder="Me tomo la libertad de solicitar..." required></textarea>
+                    <div class="letter-body__foot">
+                        <p class="field__error" id="guestMessageError" hidden>Escriba al menos unas palabras, si es tan amable.</p>
+                        <p class="letter-count"><span id="messageCount">0</span> / 600</p>
+                    </div>
+                </div>
+
+                <label class="letter-check">
+                    <input type="checkbox" name="copy" id="sealedCopy" checked>
+                    <span>Copia sellada, estampada a mano por <strong>Zero Moustafa</strong></span>
+                </label>
+
+                <div class="letter-send">
+                    <p class="letter-send__note">Discreción estricta garantizada según los estatutos de la Confr&eacute;rie des Cl&eacute;s d&rsquo;Or (1932).</p>
+                    <button class="wax" type="submit" id="sendBtn">
+                        <span class="wax__seal" aria-hidden="true">G</span>
+                        <span class="wax__label" id="sendLabel">Sellar y enviar</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Confirmación -->
+    <dialog class="letter-modal" id="letterModal" aria-labelledby="letterModalTitle">
+        <div class="letter-modal__box">
+            <div class="letter-modal__seal" aria-hidden="true">G</div>
+            <p class="letter-typed">Despacho n.º <span id="dispatchNo">1932-GH</span></p>
+            <h2 class="letter-modal__title" id="letterModalTitle">Su carta va de camino</h2>
+            <p class="letter-modal__text" id="letterModalText"></p>
+            <button class="letter-modal__close" type="button" id="letterModalClose">Cerrar</button>
+        </div>
+    </dialog>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-background flex-column">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="Media/BL (2).png" alt="Logotipo de GBH">
+                </div>
+
+                <div class="footer-header">
+                    <div class="footer-tittle">
+                        <h2>The Grand Budapest Hotel</h2>
+                        <p class="footer-place">Nebelsbad &middot; República de Zubrowka &middot; Est. 1932</p>
+                    </div>
+                </div>
+
+                <div class="main-contact flex-row">
+                    <div class="contact-item">
+                        <p>Nebelsbad, República de Zubrowka</p>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <a href="mailto:reservations@grandbudapest.com">reservations@grandbudapest.com</a>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <p>+00 123 456 789</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="footer-nav__social flex-row">
+                        <li class="nav-item"><a href="#facebook">Facebook<i class="ri-facebook-fill"></i></a></li>
+                        <li class="nav-item"><a href="#instagram">Instagram<i class="ri-instagram-line"></i></a></li>
+                        <li class="nav-item"><a href="#pinterest">Pinterest<i class="ri-pinterest-line"></i></a></li>
+                    </ul>
+
+                    <ul class="footer-nav__links flex-row">
+                        <li class="nav-text"><a class="footer-pill" href="#privacy">Política de privacidad</a></li>
+                        <li class="nav-text"><a class="footer-pill footer-pill--ghost" href="#written">Reclamaciones por escrito</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-signature italic">
+                <p>Gestionado por la <span>Sociedad de las Llaves Cruzadas</span></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

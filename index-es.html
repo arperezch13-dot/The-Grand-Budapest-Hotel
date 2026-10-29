@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand Budapest Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/index.css">
+    <script defer src="JS/index.js"></script>
+</head>
+
+<body>
+    <!-- Header Fijo Superior: barra flotante -->
+    <header class="flex-row">
+        <!-- Botón del menú: círculo rosa -->
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-controls="drawerPanel" aria-expanded="false">
+            <span class="nav-toggle__lines" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="nav-toggle__label">Menú</span>
+        </button>
+
+        <!-- Logo Central -->
+        <a class="logo-link" href="index-es.html" aria-label="The Grand Budapest Hotel — Inicio">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="logo-name">The Grand Budapest Hotel</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+        </a>
+
+        <!-- Switcher de Idioma (EN/ES) -->
+        <div class="lang-switch">
+            <a href="index.html" class="lang-pill">EN</a>
+            <a href="index-es.html" class="lang-pill active">ES</a>
+        </div>
+    </header>
+
+    <!-- Menú Desplegable Lateral (Stitch Drawer) -->
+    <aside class="drawer-panel" id="drawerPanel" aria-hidden="true">
+        <!-- Cabecera del Drawer con Crest de las Llaves Cruzadas -->
+        <div class="drawer-header">
+            <div class="society-badge">
+                <div class="badge-icon">
+                    <img src="Media/BL (2).png" alt="Logotipo de la Sociedad de las Llaves Cruzadas">
+                </div>
+                <div class="badge-info">
+                    <p class="badge-tag">Confrérie des Clés d'Or</p>
+                    <h3>Sociedad de las Llaves Cruzadas</h3>
+                    <p class="badge-sub">Service Universel • Est. 1932</p>
+                </div>
+            </div>
+            <button class="drawer-close-btn" type="button" aria-label="Cerrar menú">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- Barra de Idiomas dentro del Drawer -->
+        <div class="drawer-lang-bar">
+            <span class="lang-label">Idioma</span>
+            <div class="lang-pills-group">
+                <a href="index-es.html" class="pill active">Español</a>
+                <a href="index.html" class="pill">Inglés</a>
+            </div>
+        </div>
+
+        <!-- Lista de Navegación Principal -->
+        <nav>
+            <ul id="primary-navigation" class="drawer-menu">
+                <li>
+                    <a class="link nav-card" href="mendls-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-restaurant-2-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title"> Pastelería Mendl's</span>
+                                <span class="card-desc">Courtesan au Chocolat & Pâtisserie</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="suites-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-hotel-bed-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Suites y tarifas</span>
+                                <span class="card-desc">Habitaciones 180€ — 800€</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="letter-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-mail-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Carta a M. Gustave</span>
+                                <span class="card-desc">Conserje Privé y telegramas</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="online-check-in-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-key-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Check-in online</span>
+                                <span class="card-desc">Funicular y billete alpino</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- Filigrana decorativa -->
+        <div class="drawer-flourish" aria-hidden="true">
+            <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true">
+                <path d="M1 5q7-7 14 0t14 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+        </div>
+
+        <!-- Pie del Drawer: CTA Dorado y Nota Telegrafiada -->
+        <div class="drawer-footer">
+            <a class="book-now-btn" href="book-now-es.html">
+                <i class="ri-calendar-event-line"></i>
+                <span> Reservar</span>
+            </a>
+            <div class="telegraph-box">
+                <div class="freq-line">
+                    <span class="pulse-dot"></span>
+                    <span>TELEGRAMA: 442.8 kHz • NEBELSBAD</span>
+                </div>
+                <p class="quote">“El secreto está en la cortesía impecable, el aroma de L'Air de Panache y una discreción inquebrantable.”</p>
+                <div class="stamp-line">
+                    <span>◈ REGISTRE NO. 8492 • SOCIÉTÉ ANONYME 1932 ◈</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay Sombreado con Blur -->
+    <div class="nav-backdrop" aria-hidden="true"></div>
+
+    <main>
+        <!--Video banner-->
+        <section class="carrousel">
+            <div class="carrousel__container">
+                <video id="gbhvideo" playsinline autoplay muted loop src="Media/Videos/0112_1_.webm"
+                    type="video/mp4"></video>
+
+                <div class="carrousel__content">
+                    <h1 id="main-title" class="text-xl">The Grand Budapest Hotel</h1>
+                </div>
+                <div class="carrousel-control flex-row">
+                    <button class="Mendls-btn"><img src="Media/icon.png" data-time="0" alt="Mendls"></button>
+                    <button class="Mendls-btn"><img src="Media/icon.png" data-time="16" alt="Mendls"></button>
+                    <button class="Mendls-btn"><img src="Media/icon.png" data-time="26" alt="Mendls"></button>
+                    <button class="Mendls-btn"><img src="Media/icon.png" data-time="41" alt="Mendls"></button>
+                </div>
+            </div>
+        </section>
+
+        <!--Hero -->
+        <section class="hero__container flex-column">
+            <div class="hero__block">
+                <h2 class="text-lg">"Aún quedan débiles <span class="glimmers-word">destellos</span> de civilización en este bárbaro matadero que un día se conoció como humanidad".</h2>
+                <p class="text-md">Gustave H.</p>
+            </div>
+            <div class="wave__container">
+                <div class="wave pink__wave">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" >
+                        <defs>
+                            <pattern id="pinkWaveHeroTexture" patternUnits="userSpaceOnUse" width="360" height="360">
+                                <rect width="100%" height="100%" fill="#fbc5d8"></rect>
+                                <image class="pathern" href="Media/pathern.png" 
+                                    opacity="1"></image>
+                                <image href="Media/natural-paper.png" x="0" y="0"
+                                    opacity="0.95"></image>
+                            </pattern>
+                        </defs>
+                        <path fill="url(#pinkWaveHeroTexture)" fill-opacity="1"
+                            d="M0,32L30,48C60,64,120,96,180,122.7C240,149,300,171,360,181.3C420,192,480,192,540,160C600,128,660,64,720,69.3C780,75,840,149,900,197.3C960,245,1020,267,1080,245.3C1140,224,1200,160,1260,128C1320,96,1380,96,1410,96L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="wave purple__wave">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                        <path fill="#55115a" fill-opacity="1"
+                            d="M0,288L34.3,261.3C68.6,235,137,181,206,144C274.3,107,343,85,411,101.3C480,117,549,171,617,197.3C685.7,224,754,224,823,192C891.4,160,960,96,1029,101.3C1097.1,107,1166,181,1234,208C1302.9,235,1371,213,1406,202.7L1440,192L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <!--Service section-->
+        <section class="service ">
+            <div class="service__tittle">
+                <h2 class="text-lg">
+                    ESTÉ SANO Y SALVO, <br>
+                    <strong> en nuestros </strong><span class="italic"> aposentos...</span> <br>
+                    y deje que el resto del mundo <strong class="burn-word">arda.</strong>
+                </h2>
+            </div>
+            <div class="service__content ">
+                <div class="service__card">
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheMadameDParlor.jpg" alt="El Salón de Madame D.">
+                            </div>
+                            <div class="card__text odd">
+                                <h3>El Salón de Madame D.</h3>
+                                <p><strong>Suite Aristocrática</strong></p>
+                                <p>Nuestra suite más cara, decorada con réplicas de arte renacentista. Incluye una caja fuerte secreta.</p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheMadameDParlor(living).jpg" alt="El Salón de Madame D., zona de estar">
+                            </div>
+                            <div class="card__text odd">
+                                <p>Precio: 800€</p>
+                                <p>Servicios: colección de arte, servicio de champán, biblioteca privada.</p>
+                                <button class="book-btn">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheMendl'sSuite.jpg" alt="La Suite Mendl's">
+                            </div>
+                            <div class="card__text even">
+                                <h3>La Suite Mendl's</h3>
+                                <p><strong>Gran Lujo</strong></p>
+                                <p>Bañada en rosas pastel y simetría, esta suite incluye una cortesana de cortesía y vistas al funicular.</p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheMendl'sSuite(living).jpg" alt="La Suite Mendl's, zona de estar">
+                            </div>
+                            <div class="card__text even">
+                                <p>Precio: 650€</p>
+                                <p>Servicios: balcón privado, baño de mármol rosa, ayuda de cámara personal.</p>
+                                <button class="book-btn">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheConciergeMaster.png" alt="El Maestro Conserje">
+                            </div>
+                            <div class="card__text odd">
+                                <h3>El Maestro Conserje</h3>
+                                <p><strong>Doble Imperial</strong></p>
+                                <p>Inspirada en Monsieur Gustave H., con cortinas de terciopelo rojo intenso, una colección de L'Air de Panache y muebles de roble.</p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheConciergeMaster(living).png" alt="El Maestro Conserje, zona de estar">
+                            </div>
+                            <div class="card__text odd">
+                                <p>Precio: 400€</p>
+                                <p>Servicios: teléfono de baquelita, batas de seda, espejo dorado.</p>
+                                <button class="book-btn">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheZeroObservatory.png" alt="El Observatorio de Zero">
+                            </div>
+                            <div class="card__text even">
+                                <h3>El Observatorio de Zero</h3>
+                                <p><strong>Individual Superior</strong></p>
+                                <p>Una habitación modesta pero perfectamente equilibrada en lo alto del ala este. Ideal para escritores.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheZeroObservatory(living).png" alt="El Observatorio de Zero, zona de estar">
+                            </div>
+                            <div class="card__text even">
+                                <p>Precio: 250€</p>
+                                <p>Servicios: vistas desde el tragaluz, biblioteca de poesía, escritorio.</p>
+                                <button class="book-btn">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="card__front">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheAlpineRefuge.webp" alt="El Refugio Alpino">
+                            </div>
+                            <div class="card__text odd">
+                                <h3>El Refugio Alpino</h3>
+                                <p><strong>Twin Estándar</strong></p>
+                                <p>Acogedora y nostálgica, esta habitación ofrece una vista de 360 grados de las montañas nevadas de la República de Zubrowka.</p>
+                            </div>
+                        </div>
+                        <div class="card__back">
+                            <div class="hexagon">
+                                <img class="room" src="Media/Rooms/TheAlpineRefuge(living).png" alt="El Refugio Alpino, zona de estar">
+                            </div>
+                            <div class="card__text odd">
+                                <p>Precio: 180€</p>
+                                <p>Servicios: vistas a la montaña, mantas de lana, radio de época.</p>
+                                <button class="book-btn">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wave__container">
+                    <div class="white__wave">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 288">
+                            <path fill="#fdf6ee" fill-opacity="1"
+                                d="M0,160L30,160C60,160,120,160,180,144C240,128,300,96,360,112C420,128,480,192,540,186.7C600,181,660,107,720,106.7C780,107,840,181,900,213.3C960,245,1020,235,1080,202.7C1140,171,1200,117,1260,112C1320,107,1380,149,1410,170.7L1440,192L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--Gallery section-->
+        <section class="gallery flex-column">
+            <div class="gallery__block">
+                <div class="gallery__tittle">
+                    <h2 class="text-lg">Descubra el <strong>Grand Budapest</strong> <span class="italic">Hotel</span>
+                    </h2>
+                </div>
+                <div class="staff-text">
+                    <h3>Conozca a <span class="italic">nuestro</span> equipo dedicado</h3>
+                    <p>Formados en la Sociedad de las Llaves Cruzadas para el servicio más exigente.</p>
+                </div>
+                <div class="gallery-image right">
+                    <div class="gallery-frame">
+                        <img src="Media/Concierge.png" alt="Imagen de la galería 1">
+                    </div>
+                </div>
+                <div class="gallery-image left">
+                    <div class="gallery-frame">
+                        <img src="Media/Mendls.png" alt="Imagen de la galería 2">
+                    </div>
+                </div>
+            </div>
+            <!-- Staff cards: aparecen después de la animación (diseño Stitch) -->
+            <div class="staff-cards">
+                <div class="staff-cards__grid">
+                    <article class="staff-card">
+                        <div class="staff-card__photo">
+                            <img src="Media/gustave.jpg" alt="M. Gustave H., conserje jefe" loading="lazy">
+                            <span class="staff-card__caption">M. Gustave H. • Conserje jefe</span>
+                        </div>
+                        <h3 class="staff-card__title">El mostrador del conserje</h3>
+                        <p class="staff-card__text">Acreditado por la Confrérie des Clés d'Or. Omnipresente, impecablemente perfumado e imperturbable.</p>
+                    </article>
+
+                    <article class="staff-card staff-card--featured">
+                        <span class="staff-card__badge">Acreditado por la Sociedad</span>
+                        <div class="staff-card__photo">
+                            <img src="Media/kid.jpg" alt="Zero Moustafa y la brigada de botones" loading="lazy">
+                            <span class="staff-card__caption">Zero Moustafa &amp; La Brigada</span>
+                        </div>
+                        <h3 class="staff-card__title">La brigada de botones</h3>
+                        <p class="staff-card__text">Listos a cada campanilla. Formados en telegramas confidenciales, acarreo de baúles y manejo de automóviles antiguos.</p>
+                    </article>
+                    <article class="staff-card">
+                        <div class="staff-card__photo">
+                            <img src="Media/bakery.png" alt="Agatha, maestra pastelera" loading="lazy">
+                            <span class="staff-card__caption">Agatha • Maestra pastelera</span>
+                        </div>
+                        <h3 class="staff-card__title"><a class="staff-card__link" href="mendls-es.html">Pastelería Mendl's</a></h3>
+                        <p class="staff-card__text">Proveedores del célebre Courtesan au Chocolat. Servido recién hecho en los dormitorios a las 07:00 en punto.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-background flex-column">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="Media/BL (2).png" alt="Logotipo de GBH">
+                </div>
+
+                <div class="footer-header">
+                    <div class="footer-tittle">
+                        <h2>The Grand Budapest Hotel</h2>
+                        <p class="footer-place">Nebelsbad &middot; República de Zubrowka &middot; Est. 1932</p>
+                    </div>
+                </div>
+
+                <div class="main-contact flex-row">
+                    <div class="contact-item">
+                        <p>Nebelsbad, República de Zubrowka</p>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <a href="mailto:reservations@grandbudapest.com">reservations@grandbudapest.com</a>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <p>+00 123 456 789</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="footer-nav__social flex-row">
+                        <li class="nav-item"><a href="#facebook">Facebook<i class="ri-facebook-fill"></i></a></li>
+                        <li class="nav-item"><a href="#instagram">Instagram<i class="ri-instagram-line"></i></a></li>
+                        <li class="nav-item"><a href="#pinterest">Pinterest<i class="ri-pinterest-line"></i></a></li>
+                    </ul>
+
+                    <ul class="footer-nav__links flex-row">
+                        <li class="nav-text"><a class="footer-pill" href="#privacy">Política de privacidad</a></li>
+                        <li class="nav-text"><a class="footer-pill footer-pill--ghost" href="#written">Reclamaciones por escrito</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-signature italic">
+                <p>Gestionado por la <span>Sociedad de las Llaves Cruzadas</span></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

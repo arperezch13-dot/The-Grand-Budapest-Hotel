@@ -1,0 +1,647 @@
+.checkin {
+    --c-soft: #6d2a68;
+    --c-gold-text: #8a5f12;
+    --c-rose-ink: #7e3d63;
+    --c-line: #c9a56a;
+    --c-error: #9b1c2e;
+
+    background: var(--c-cream);
+    color: var(--c-purple);
+    font-family: "TextFont1", sans-serif;
+    overflow-x: hidden;
+}
+
+.checkin .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.checkin-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--c-logo-gold);
+}
+
+/* HERO */
+
+.checkin-hero {
+    padding: 10.5rem 1.5rem 5rem;
+    background: var(--c-purple);
+    color: var(--c-cream);
+    text-align: center;
+}
+
+/* Wave */
+.checkin-wave {
+    margin-top: -1px;
+    line-height: 0;
+    background: var(--c-cream);
+}
+
+.checkin-wave svg {
+    display: block;
+    width: 100%;
+    height: 6.2rem;
+}
+
+.checkin-wave path {
+    fill: var(--c-purple);
+}
+
+.checkin-hero__inner {
+    max-width: 52rem;
+    margin: 0 auto;
+}
+
+.checkin-hero__title {
+    margin-top: 0.9rem;
+    font-family: "GrandBudapestFont", serif;
+    font-size: clamp(2.6rem, 5.4vw, 3.9rem);
+    font-weight: 600;
+    line-height: 1.05;
+}
+
+.checkin-hero__text {
+    max-width: 34rem;
+    margin: 1.3rem auto 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #f3d9e6;
+}
+
+/* Indicador de pasos */
+.checkin-steps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    margin-top: 2.6rem;
+}
+
+.checkin-steps__item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.38rem 1.1rem 0.38rem 0.38rem;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1px var(--c-logo-gold);
+    color: var(--c-logo-gold);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: background 0.25s, color 0.25s;
+}
+
+.checkin-steps__item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1.5px var(--c-logo-gold);
+    font-family: "GrandBudapestFont", serif;
+    font-size: 0.85rem;
+}
+
+/* Paso en el que está el usuario */
+.checkin-steps__item.is-current {
+    background: var(--c-logo-gold);
+    color: var(--c-purple);
+}
+
+.checkin-steps__item.is-current span {
+    background: var(--c-purple);
+    box-shadow: none;
+    color: var(--c-logo-gold);
+}
+
+/* Paso ya completado */
+.checkin-steps__item.is-done span {
+    background: var(--c-logo-gold);
+    box-shadow: none;
+    color: var(--c-purple);
+}
+
+.checkin-steps__item.is-done span::before {
+    content: "\2713";
+}
+
+.checkin-steps__item.is-done span {
+    font-size: 0;
+}
+
+.checkin-steps__item.is-done span::before {
+    font-size: 0.85rem;
+}
+
+.checkin-steps__line {
+    width: 2.5rem;
+    border-top: 2px dashed rgba(250, 193, 113, 0.6);
+}
+
+/* CUERPO tarjetas de pasos y tarjeta de llegada */
+
+.checkin-body {
+    padding: 3.5rem 1.5rem 10rem;
+}
+
+.checkin-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: flex-start;
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.checkin-steps-col {
+    display: flex;
+    flex: 1 1 40rem;
+    flex-direction: column;
+    gap: 2.4rem;
+    min-width: 0;
+}
+
+.step {
+    display: flex;
+    gap: 1.3rem;
+}
+
+.step__rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step__num {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: var(--c-purple);
+    color: var(--c-logo-gold);
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.step__line {
+    flex: 1;
+    margin-top: 0.4rem;
+    border-left: 2px dashed var(--c-line);
+}
+
+.step__card {
+    flex: 1;
+    min-width: 0;
+    padding: 2.3rem 2.5rem 2.4rem;
+    border-radius: 1.6rem 0 1.6rem 0;
+    background: #fffdf8;
+    box-shadow: inset 0 0 0 1px var(--c-line);
+}
+
+.step__title {
+    margin-bottom: 1.6rem;
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: var(--c-purple);
+}
+
+.step__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem 1.5rem;
+}
+
+.step__grid--top {
+    margin-top: 1.7rem;
+}
+
+.field--wide {
+    grid-column: 1 / -1;
+}
+
+.field__label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+.field__input {
+    display: block;
+    width: 100%;
+    height: 3.1rem;
+    padding: 0 1.1rem;
+    border: 0;
+    border-radius: 999px;
+    background: #fffdf8;
+    box-shadow: inset 0 0 0 1px var(--c-line);
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #2a1330;
+}
+
+/* Referencia con letra de máquina de escribir */
+.field__input--typed {
+    font-family: "Courier New", Courier, monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.field__input::placeholder {
+    color: rgba(42, 19, 48, 0.4);
+    text-transform: none;
+}
+
+.field__input:focus-visible {
+    outline: 2px solid var(--c-logo-gold);
+    outline-offset: 2px;
+}
+
+.field.is-invalid .field__input {
+    box-shadow: inset 0 0 0 2px var(--c-error);
+}
+
+.field__error {
+    margin-top: 0.4rem;
+    padding-left: 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--c-error);
+}
+
+.step__card > .field__error {
+    margin-top: 0.7rem;
+}
+
+/* Reserva encontrada */
+.booking-found {
+    margin-top: 1rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    background: #fde8f0;
+    font-size: 0.85rem;
+    color: var(--c-purple);
+}
+
+.step__btn {
+    margin-top: 1.6rem;
+    padding: 0.85rem 1.7rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--c-purple);
+    color: var(--c-logo-gold);
+    font: inherit;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.step__btn:focus-visible,
+.arrival-card__btn:focus-visible,
+.checkin-modal__close:focus-visible {
+    outline: 2px solid var(--c-logo-gold);
+    outline-offset: 3px;
+}
+
+.step__demo {
+    margin-top: 0.7rem;
+    font-size: 0.75rem;
+    color: var(--c-soft);
+}
+
+/*  Cómo llegas  */
+
+.modes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.mode {
+    position: relative;
+}
+
+.mode__input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.mode__card {
+    display: block;
+    height: 100%;
+    padding: 1rem 1rem 0.9rem;
+    border-radius: 1.1rem 0 1.1rem 0;
+    background: #fffdf8;
+    box-shadow: inset 0 0 0 1px #d9c3a0;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.mode__title {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--c-purple);
+}
+
+.mode__hint {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.76rem;
+    line-height: 1.35;
+    color: var(--c-soft);
+}
+
+.mode__input:checked + .mode__card {
+    background: #fff6e4;
+    box-shadow: inset 0 0 0 2px var(--c-gold-ink);
+}
+
+.mode__input:focus-visible + .mode__card {
+    outline: 2px solid var(--c-logo-gold);
+    outline-offset: 2px;
+}
+
+/*  Normas  */
+
+.checkin-check {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.8rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.checkin-check input {
+    width: 1.35rem;
+    height: 1.35rem;
+    accent-color: var(--c-purple);
+}
+
+/* TARJETA DE LLEGADA  */
+
+.arrival-card {
+    position: sticky;
+    top: 6rem;
+    flex: 0 1 22.5rem;
+    min-width: 18.5rem;
+    padding: 2.5rem 2.2rem 2.4rem;
+    border-radius: 0 1.75rem 0 1.75rem;
+    background-color: var(--c-pink);
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"), url("../Media/pathern.png");
+    box-shadow: inset 0 0 0 1px var(--c-gold-ink), 0 1.4rem 2.5rem rgba(85, 17, 90, 0.2);
+    color: var(--c-purple);
+}
+
+.arrival-card__head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.arrival-card__crest {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 50%;
+    background: var(--c-purple);
+    color: var(--c-logo-gold);
+    font-family: "GrandBudapestFont", serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.arrival-card__label {
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--c-rose-ink);
+}
+
+.arrival-card__ref {
+    margin-top: 0.2rem;
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.arrival-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-top: 2rem;
+}
+
+.arrival-card__list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dotted rgba(85, 17, 90, 0.45);
+}
+
+.arrival-card__list dt {
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--c-rose-ink);
+}
+
+.arrival-card__list dd {
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.arrival-card__note {
+    margin-top: 1.2rem;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.76rem;
+    line-height: 1.5;
+    color: var(--c-purple);
+}
+
+.arrival-card__btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1.05rem 1.2rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--c-purple);
+    color: var(--c-logo-gold);
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.arrival-card__btn:disabled {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+/* Aparición al hacer scroll */
+
+.js-ready .checkin .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js-ready .checkin .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* MODAL DE CONFIRMACIÓN */
+
+.checkin-modal {
+    margin: auto;
+    width: min(30rem, calc(100% - 2rem));
+    padding: 0;
+    border: 0;
+    border-radius: 2rem 0 2rem 0;
+    background: var(--c-cream);
+    box-shadow: 0 1.5rem 4rem rgba(23, 6, 26, 0.35), inset 0 0 0 1px var(--c-gold-ink);
+    color: var(--c-purple);
+    font-family: "TextFont1", sans-serif;
+}
+
+.checkin-modal::backdrop {
+    background: rgba(66, 13, 71, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.checkin-modal__box {
+    padding: 2.4rem 2.2rem 2rem;
+    text-align: center;
+}
+
+.checkin-modal__box .checkin-eyebrow {
+    color: var(--c-gold-text);
+}
+
+.checkin-modal__code {
+    margin-top: 0.5rem;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.checkin-modal__title {
+    margin: 0.8rem 0 1rem;
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.checkin-modal__text {
+    margin-bottom: 1.6rem;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--c-soft);
+}
+
+.checkin-modal__close {
+    padding: 0.95rem 2.2rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--c-purple);
+    color: var(--c-logo-gold);
+    font: inherit;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js-ready .checkin .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    
+    .arrival-card {
+        position: static;
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .checkin-hero {
+        padding: 8.5rem 1rem 3.5rem;
+    }
+
+    .checkin-steps__line {
+        display: none;
+    }
+
+    .checkin-body {
+        padding: 3rem 0.8rem 7rem;
+    }
+
+    .checkin-steps-col {
+        gap: 2rem;
+    }
+
+    .step {
+        gap: 0.7rem;
+    }
+
+    .step__num {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1rem;
+    }
+
+    .step__card {
+        padding: 1.9rem 1.2rem 2rem;
+    }
+
+    .step__grid,
+    .modes {
+        grid-template-columns: 1fr;
+    }
+}

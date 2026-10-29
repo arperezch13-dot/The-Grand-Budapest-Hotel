@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in online · The Grand Budapest Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/online-check-in.css">
+    <script defer src="JS/index.js"></script>
+    <script defer src="JS/online-check-in.js"></script>
+</head>
+
+<body>
+    <!-- Header Fijo Superior: barra flotante -->
+    <header class="flex-row">
+        <!-- Botón del menú: círculo rosa -->
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-controls="drawerPanel" aria-expanded="false">
+            <span class="nav-toggle__lines" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="nav-toggle__label">Menú</span>
+        </button>
+
+        <!-- Logo Central -->
+        <a class="logo-link" href="index-es.html" aria-label="The Grand Budapest Hotel — Inicio">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="logo-name">The Grand Budapest Hotel</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+        </a>
+
+        <!-- Switcher de Idioma (EN/ES) -->
+        <div class="lang-switch">
+            <a href="online-check-in.html" class="lang-pill">EN</a>
+            <a href="online-check-in-es.html" class="lang-pill active">ES</a>
+        </div>
+    </header>
+
+    <!-- Menú Desplegable Lateral (Stitch Drawer) -->
+    <aside class="drawer-panel" id="drawerPanel" aria-hidden="true">
+        <!-- Cabecera del Drawer con Crest de las Llaves Cruzadas -->
+        <div class="drawer-header">
+            <div class="society-badge">
+                <div class="badge-icon">
+                    <img src="Media/BL (2).png" alt="Logotipo de la Sociedad de las Llaves Cruzadas">
+                </div>
+                <div class="badge-info">
+                    <p class="badge-tag">Confrérie des Clés d'Or</p>
+                    <h3>Sociedad de las Llaves Cruzadas</h3>
+                    <p class="badge-sub">Service Universel • Est. 1932</p>
+                </div>
+            </div>
+            <button class="drawer-close-btn" type="button" aria-label="Cerrar menú">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- Barra de Idiomas dentro del Drawer -->
+        <div class="drawer-lang-bar">
+            <span class="lang-label">Idioma</span>
+            <div class="lang-pills-group">
+                <a href="online-check-in-es.html" class="pill active">Español</a>
+                <a href="online-check-in.html" class="pill">Inglés</a>
+            </div>
+        </div>
+
+        <!-- Lista de Navegación Principal -->
+        <nav>
+            <ul id="primary-navigation" class="drawer-menu">
+                <li>
+                    <a class="link nav-card" href="mendls-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-restaurant-2-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title"> Pastelería Mendl's</span>
+                                <span class="card-desc">Courtesan au Chocolat & Pâtisserie</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="suites-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-hotel-bed-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Suites y tarifas</span>
+                                <span class="card-desc">Habitaciones 180€ — 800€</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="letter-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-mail-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Carta a M. Gustave</span>
+                                <span class="card-desc">Conserje Privé y telegramas</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="online-check-in-es.html" aria-current="page">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-key-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Check-in online</span>
+                                <span class="card-desc">Funicular y billete alpino</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- Filigrana decorativa -->
+        <div class="drawer-flourish" aria-hidden="true">
+            <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true">
+                <path d="M1 5q7-7 14 0t14 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+        </div>
+
+        <!-- Pie del Drawer: CTA Dorado y Nota Telegrafiada -->
+        <div class="drawer-footer">
+            <a class="book-now-btn" href="book-now-es.html">
+                <i class="ri-calendar-event-line"></i>
+                <span> Reservar</span>
+            </a>
+            <div class="telegraph-box">
+                <div class="freq-line">
+                    <span class="pulse-dot"></span>
+                    <span>TELEGRAMA: 442.8 kHz • NEBELSBAD</span>
+                </div>
+                <p class="quote">“El secreto está en la cortesía impecable, el aroma de L'Air de Panache y una discreción inquebrantable.”</p>
+                <div class="stamp-line">
+                    <span>◈ REGISTRE NO. 8492 • SOCIÉTÉ ANONYME 1932 ◈</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay Sombreado con Blur -->
+    <div class="nav-backdrop" aria-hidden="true"></div>
+
+    <main class="checkin">
+
+        <!-- HERO -->
+        <section class="checkin-hero">
+            <div class="checkin-hero__inner">
+                <p class="checkin-eyebrow">&#9672; Formalidades de llegada &#9672;</p>
+                <h1 class="checkin-hero__title">Check-in online</h1>
+                <p class="checkin-hero__text">Haga el check-in desde casa y recoja su llave en la estación del funicular.</p>
+
+                <ol class="checkin-steps" id="checkinSteps" aria-label="Progreso del check-in">
+                    <li class="checkin-steps__item is-current" data-step="1"><span>1</span>Su reserva</li>
+                    <li class="checkin-steps__line" aria-hidden="true"></li>
+                    <li class="checkin-steps__item" data-step="2"><span>2</span>Llegada</li>
+                    <li class="checkin-steps__line" aria-hidden="true"></li>
+                    <li class="checkin-steps__item" data-step="3"><span>3</span>Huéspedes</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Wave -->
+        <div class="checkin-wave" aria-hidden="true">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path d="M0,32L30,48C60,64,120,96,180,122.7C240,149,300,171,360,181.3C420,192,480,192,540,160C600,128,660,64,720,69.3C780,75,840,149,900,197.3C960,245,1020,267,1080,245.3C1140,224,1200,160,1260,128C1320,96,1380,96,1410,96L1440,96L1440,0L0,0Z"></path>
+            </svg>
+        </div>
+
+        <!-- FORMULARIO: tarjetas de pasos y tarjeta de llegada -->
+        <section class="checkin-body">
+            <form class="checkin-layout" id="checkinForm" novalidate>
+
+                <div class="checkin-steps-col">
+
+                    <!-- Paso 1 -->
+                    <div class="step reveal">
+                        <div class="step__rail">
+                            <span class="step__num">1</span>
+                            <span class="step__line" aria-hidden="true"></span>
+                        </div>
+                        <div class="step__card">
+                            <h2 class="step__title">Su reserva</h2>
+                            <div class="step__grid">
+                                <div class="field">
+                                    <label class="field__label" for="bookingRef">Referencia de reserva</label>
+                                    <input class="field__input field__input--typed" id="bookingRef" name="ref" type="text" placeholder="GBH-1932-48" autocomplete="off" required>
+                                </div>
+                                <div class="field">
+                                    <label class="field__label" for="lastName">Apellido</label>
+                                    <input class="field__input" id="lastName" name="lastName" type="text" placeholder="Moustafa" autocomplete="family-name" required>
+                                </div>
+                            </div>
+                            <p class="field__error" id="bookingError" hidden>No hemos encontrado esa reserva. Compruebe su referencia y su apellido.</p>
+                            <p class="booking-found" id="bookingFound" hidden></p>
+                            <button class="step__btn" type="button" id="findBtn">Buscar mi reserva</button>
+                            <!-- Reserva de ejemplo: quitar esta línea cuando haya una consulta real -->
+                            <p class="step__demo">Pruebe la reserva de ejemplo: GBH-1932-48 &middot; Moustafa</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="step reveal">
+                        <div class="step__rail">
+                            <span class="step__num">2</span>
+                            <span class="step__line" aria-hidden="true"></span>
+                        </div>
+                        <div class="step__card">
+                            <h2 class="step__title">¿Cómo llegará?</h2>
+                            <fieldset class="modes">
+                                <legend class="sr-only">Medio de llegada</legend>
+                                <label class="mode">
+                                    <input class="mode__input" type="radio" name="mode" value="Funicular" checked>
+                                    <span class="mode__card">
+                                        <span class="mode__title">Funicular</span>
+                                        <span class="mode__hint">Desde la estación de Nebelsbad</span>
+                                    </span>
+                                </label>
+                                <label class="mode">
+                                    <input class="mode__input" type="radio" name="mode" value="Coche privado">
+                                    <span class="mode__card">
+                                        <span class="mode__title">Coche privado</span>
+                                        <span class="mode__hint">Chófer en la puerta principal</span>
+                                    </span>
+                                </label>
+                                <label class="mode">
+                                    <input class="mode__input" type="radio" name="mode" value="A pie">
+                                    <span class="mode__card">
+                                        <span class="mode__title">A pie</span>
+                                        <span class="mode__hint">Por el sendero alpino</span>
+                                    </span>
+                                </label>
+                            </fieldset>
+                            <div class="step__grid step__grid--top">
+                                <div class="field">
+                                    <label class="field__label" for="arrivalDate">Fecha de llegada</label>
+                                    <input class="field__input" id="arrivalDate" name="date" type="date" required>
+                                    <p class="field__error" id="arrivalDateError" hidden>Elija su fecha de llegada.</p>
+                                </div>
+                                <div class="field">
+                                    <label class="field__label" for="arrivalTime">Hora estimada</label>
+                                    <input class="field__input" id="arrivalTime" name="time" type="time" value="14:20" required>
+                                    <p class="field__error" id="arrivalTimeError" hidden>Elija su hora de llegada.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="step reveal">
+                        <div class="step__rail">
+                            <span class="step__num">3</span>
+                        </div>
+                        <div class="step__card">
+                            <h2 class="step__title">Huéspedes y documentos</h2>
+                            <div class="step__grid">
+                                <div class="field">
+                                    <label class="field__label" for="docType">Documento de viaje</label>
+                                    <select class="field__input" id="docType" name="docType">
+                                        <option>Pasaporte</option>
+                                        <option>Documento de identidad</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label class="field__label" for="docNumber">Número de documento</label>
+                                    <input class="field__input" id="docNumber" name="docNumber" type="text" placeholder="XX 000000" autocomplete="off" required>
+                                    <p class="field__error" id="docNumberError" hidden>Introduzca su número de documento.</p>
+                                </div>
+                                <div class="field field--wide">
+                                    <label class="field__label" for="requests">Peticiones especiales</label>
+                                    <input class="field__input" id="requests" name="requests" type="text" maxlength="160" placeholder="Almohada extra, champán a la llegada...">
+                                </div>
+                            </div>
+                            <label class="checkin-check">
+                                <input type="checkbox" id="rules" name="rules" checked>
+                                <span>Acepto las normas de la casa del Grand Budapest Hotel.</span>
+                            </label>
+                            <p class="field__error" id="rulesError" hidden>Acepte las normas de la casa para continuar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de llegada (resumen) -->
+                <aside class="arrival-card reveal" aria-live="polite">
+                    <div class="arrival-card__head">
+                        <span class="arrival-card__crest" aria-hidden="true">1932</span>
+                        <div>
+                            <p class="arrival-card__label">Tarjeta de llegada</p>
+                            <p class="arrival-card__ref" id="sumRef">&mdash;</p>
+                        </div>
+                    </div>
+                    <dl class="arrival-card__list">
+                        <div><dt>Suite</dt><dd id="sumSuite">&mdash;</dd></div>
+                        <div><dt>Estancia</dt><dd id="sumStay">&mdash;</dd></div>
+                        <div><dt>Llegada</dt><dd id="sumArrival">&mdash;</dd></div>
+                        <div><dt>Huéspedes</dt><dd id="sumGuests">&mdash;</dd></div>
+                    </dl>
+                    <p class="arrival-card__note">Su llave le esperará en la estación del funicular, firmada por M. Gustave.</p>
+                    <button class="arrival-card__btn" type="submit" id="completeBtn">Completar check-in</button>
+                </aside>
+            </form>
+        </section>
+    </main>
+
+    <!-- Confirmación -->
+    <dialog class="checkin-modal" id="checkinModal" aria-labelledby="checkinModalTitle">
+        <div class="checkin-modal__box">
+            <p class="checkin-eyebrow">Código de check-in</p>
+            <p class="checkin-modal__code" id="checkinCode">GBH-0000</p>
+            <h2 class="checkin-modal__title" id="checkinModalTitle">Check-in completado</h2>
+            <p class="checkin-modal__text" id="checkinModalText"></p>
+            <button class="checkin-modal__close" type="button" id="checkinModalClose">Cerrar</button>
+        </div>
+    </dialog>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-background flex-column">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="Media/BL (2).png" alt="Logotipo de GBH">
+                </div>
+
+                <div class="footer-header">
+                    <div class="footer-tittle">
+                        <h2>The Grand Budapest Hotel</h2>
+                        <p class="footer-place">Nebelsbad &middot; República de Zubrowka &middot; Est. 1932</p>
+                    </div>
+                </div>
+
+                <div class="main-contact flex-row">
+                    <div class="contact-item">
+                        <p>Nebelsbad, República de Zubrowka</p>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <a href="mailto:reservations@grandbudapest.com">reservations@grandbudapest.com</a>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <p>+00 123 456 789</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="footer-nav__social flex-row">
+                        <li class="nav-item"><a href="#facebook">Facebook<i class="ri-facebook-fill"></i></a></li>
+                        <li class="nav-item"><a href="#instagram">Instagram<i class="ri-instagram-line"></i></a></li>
+                        <li class="nav-item"><a href="#pinterest">Pinterest<i class="ri-pinterest-line"></i></a></li>
+                    </ul>
+
+                    <ul class="footer-nav__links flex-row">
+                        <li class="nav-text"><a class="footer-pill" href="#privacy">Política de privacidad</a></li>
+                        <li class="nav-text"><a class="footer-pill footer-pill--ghost" href="#written">Reclamaciones por escrito</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-signature italic">
+                <p>Gestionado por la <span>Sociedad de las Llaves Cruzadas</span></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

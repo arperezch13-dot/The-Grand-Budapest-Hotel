@@ -1,0 +1,629 @@
+.letter {
+    --c-soft: #6d2a68;
+    --c-gold-text: #8a5f12;
+    --c-rose-ink: #7e3d63;
+    --c-paper: #fbf3df;
+    --c-paper-dark: #ecdfbf;
+    --c-ink: #3b1a3d;
+    --c-error: #9b1c2e;
+
+    /* Morado de la paleta */
+    background-color: var(--c-purple);
+    color: var(--c-purple);
+    font-family: "TextFont1", sans-serif;
+    padding: 11rem 1.5rem 10rem;   /* aire arriba (bajo el header) y abajo (antes del footer) */
+    overflow-x: hidden;
+}
+
+/* Fuente de máquina de escribir para fechas y membretes */
+.letter-typed {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-soft);
+}
+
+/*  Hoja doble  */
+
+.letter-sheet {
+    display: flex;
+    max-width: 70rem;
+    margin: 0 auto;
+    background: var(--c-paper);
+    border-radius: 0.4rem;
+    box-shadow: 0 1.9rem 3.8rem rgba(23, 6, 26, 0.45), 0 0 0 1px var(--c-gold-ink);
+}
+
+.letter-page {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 4.4rem 3.6rem 4rem;
+}
+
+.letter-page--left {
+    background: linear-gradient(to right, var(--c-paper) 80%, var(--c-paper-dark) 100%);
+    border-radius: 0.4rem 0 0 0.4rem;
+}
+
+.letter-page--right {
+    position: relative;
+    background: linear-gradient(to left, var(--c-paper) 80%, #f3e6c8 100%);
+    border-radius: 0 0.4rem 0.4rem 0;
+}
+
+/* Pliegue central */
+.letter-fold {
+    flex: 0 0 2px;
+    background: linear-gradient(to bottom, rgba(120, 80, 30, 0.1), rgba(120, 80, 30, 0.45), rgba(120, 80, 30, 0.1));
+    box-shadow: -6px 0 12px rgba(120, 80, 30, 0.12), 6px 0 12px rgba(255, 255, 255, 0.35);
+}
+
+/*  Página izquierda  */
+
+.letter-crest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 4.9rem;
+    height: 4.9rem;
+    border-radius: 50%;
+    background: var(--c-purple);
+    box-shadow: 0 0 0 4px var(--c-paper), 0 0 0 5px var(--c-gold-ink);
+    color: var(--c-logo-gold);
+}
+
+.letter-crest strong {
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.letter-crest span {
+    margin-top: 0.2rem;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.letter-page--left .letter-typed {
+    margin-top: 1.6rem;
+}
+
+.letter-title {
+    margin-top: 0.5rem;
+    font-family: "GrandBudapestFont", serif;
+    font-size: clamp(2.2rem, 3.6vw, 3.1rem);
+    font-weight: 600;
+    line-height: 1.08;
+    color: var(--c-purple);
+}
+
+.letter-society {
+    margin-top: 0.9rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-purple);
+}
+
+.letter-quote {
+    margin-top: 2.6rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid rgba(85, 17, 90, 0.3);
+}
+
+.letter-quote blockquote {
+    font-family: "TextFont0", Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--c-purple);
+}
+
+.letter-quote figcaption {
+    margin-top: 0.7rem;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+.letter-facts {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2.6rem;
+}
+
+.letter-facts div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dotted rgba(85, 17, 90, 0.4);
+}
+
+.letter-facts dt {
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+.letter-facts dd {
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--c-purple);
+}
+
+.letter-ps {
+    margin-top: 2.6rem;
+    padding: 1.4rem 1.6rem;
+    border-radius: 0 1.4rem 0 1.4rem;
+    background-color: var(--c-pink);
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    box-shadow: inset 0 0 0 1px var(--c-gold-ink);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.letter-ps__label {
+    margin-bottom: 0.35rem;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--c-rose-ink);
+}
+
+/* Página derecha */
+
+.letter-stamp {
+    position: absolute;
+    top: 1.8rem;
+    right: 2.2rem;
+    width: 4.6rem;
+    padding: 0.55rem 0.25rem;
+    text-align: center;
+    background: var(--c-pink);
+    outline: 2px dashed var(--c-gold-ink);
+    outline-offset: -5px;
+    transform: rotate(4deg);
+}
+
+.letter-stamp span {
+    display: block;
+    font-size: 0.44rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.letter-stamp strong {
+    display: block;
+    margin-top: 0.25rem;
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.letter-salute {
+    margin: 2.2rem 0 2rem;
+    font-family: "TextFont0", Georgia, serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--c-purple);
+}
+
+.letter-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 1.4rem 1.4rem;
+}
+
+.field--wide {
+    grid-column: 1 / -1;
+}
+
+.field__label {
+    display: block;
+    padding: 0;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+/* Campos subrayados, como escritos sobre la línea */
+.field__input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    border: 0;
+    border-bottom: 1.5px solid var(--c-purple);
+    border-radius: 0;
+    background: transparent;
+    font-family: "TextFont0", Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--c-ink);
+}
+
+.field__input::placeholder,
+.letter-lines::placeholder {
+    color: rgba(59, 26, 61, 0.4);
+}
+
+.field__input:focus-visible,
+.letter-lines:focus-visible {
+    outline: none;
+    border-bottom-color: var(--c-gold-ink);
+    box-shadow: 0 2px 0 var(--c-logo-gold);
+}
+
+.field.is-invalid .field__input,
+.field.is-invalid .letter-lines {
+    border-bottom-color: var(--c-error);
+}
+
+.field__error {
+    margin-top: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--c-error);
+}
+
+/*  Motivo */
+
+.letter-reasons {
+    min-width: 0;
+    margin: 2.2rem 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.letter-reasons .field__label {
+    margin-bottom: 0.55rem;
+}
+
+.letter-reasons__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.reason {
+    position: relative;
+}
+
+.reason__input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    cursor: pointer;
+}
+
+.reason__chip {
+    display: block;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1px var(--c-gold-ink);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--c-purple);
+    transition: background 0.2s, color 0.2s;
+}
+
+.reason__input:checked + .reason__chip {
+    background: var(--c-purple);
+    color: var(--c-logo-gold);
+    box-shadow: inset 0 0 0 1px var(--c-logo-gold);
+}
+
+.reason__input:focus-visible + .reason__chip {
+    outline: 2px solid var(--c-logo-gold);
+    outline-offset: 2px;
+}
+
+/* Cuerpo de la carta */
+
+.letter-body {
+    margin-top: 2.2rem;
+}
+
+.letter-lines {
+    display: block;
+    width: 100%;
+    margin-top: 0.4rem;
+    padding: 0 0.25rem;
+    border: 0;
+    background-color: transparent;
+    background-image: repeating-linear-gradient(transparent 0 2.1rem, rgba(85, 17, 90, 0.26) 2.1rem 2.15rem);
+    background-attachment: local;
+    font-family: "TextFont0", Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 2.15rem;
+    color: var(--c-ink);
+    resize: none;
+}
+
+.letter-body__foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.letter-count {
+    margin: 0.35rem 0 0 auto;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--c-soft);
+}
+
+.letter-check {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.6rem;
+    font-size: 0.88rem;
+    cursor: pointer;
+}
+
+.letter-check input {
+    width: 1.3rem;
+    height: 1.3rem;
+    accent-color: var(--c-purple);
+}
+
+.letter-check strong {
+    text-decoration: underline;
+}
+
+/* Envío (sello de cera) */
+
+.letter-send {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-top: 2.4rem;
+}
+
+.letter-send__note {
+    font-family: "TextFont0", Georgia, serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--c-soft);
+}
+
+.wax {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.wax__seal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.7rem;
+    height: 4.7rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #d4465a, #9b1c2e 60%, #6e1020);
+    box-shadow: 0 6px 14px rgba(110, 16, 32, 0.5);
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #6e1020;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: transform 0.2s;
+}
+
+.wax:hover .wax__seal {
+    transform: scale(1.05);
+}
+
+.wax:active .wax__seal,
+.wax.is-sealing .wax__seal {
+    transform: scale(0.88);
+    box-shadow: 0 2px 6px rgba(110, 16, 32, 0.5);
+}
+
+.wax:focus-visible {
+    outline: 2px solid var(--c-purple);
+    outline-offset: 4px;
+    border-radius: 0.6rem;
+}
+
+.wax:disabled {
+    cursor: progress;
+}
+
+.wax__label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--c-purple);
+}
+
+/* ---------- Aparición al hacer scroll ---------- */
+
+.js-ready .letter .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js-ready .letter .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Modal de confirmación */
+
+.letter-modal {
+    margin: auto;
+    width: min(30rem, calc(100% - 2rem));
+    padding: 0;
+    border: 0;
+    border-radius: 2rem 0 2rem 0;
+    background: var(--c-cream);
+    box-shadow: 0 1.5rem 4rem rgba(23, 6, 26, 0.35), inset 0 0 0 1px var(--c-gold-ink);
+    color: var(--c-purple);
+    font-family: "TextFont1", sans-serif;
+}
+
+.letter-modal::backdrop {
+    background: rgba(66, 13, 71, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.letter-modal__box {
+    padding: 2.4rem 2.2rem 2rem;
+    text-align: center;
+}
+
+.letter-modal__seal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #d4465a, #9b1c2e 60%, #6e1020);
+    box-shadow: 0 6px 14px rgba(110, 16, 32, 0.45);
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.5rem;
+    color: #6e1020;
+    animation: letter-stamp 0.5s ease-out;
+}
+
+@keyframes letter-stamp {
+    from { transform: scale(1.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.letter-modal__title {
+    margin: 0.5rem 0 1rem;
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.letter-modal__text {
+    margin-bottom: 1.6rem;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--c-soft);
+}
+
+.letter-modal__close {
+    padding: 0.95rem 2.2rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--c-purple);
+    color: var(--c-logo-gold);
+    font: inherit;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.letter-modal__close:focus-visible {
+    outline: 2px solid var(--c-logo-gold);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js-ready .letter .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .letter-modal__seal {
+        animation: none;
+    }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    /* Las dos páginas se apilan y el pliegue pasa a ser horizontal */
+    .letter {
+        padding: 10rem 1.5rem 8rem;
+    }
+
+    .letter-sheet {
+        flex-direction: column;
+    }
+
+    .letter-page--left {
+        background: linear-gradient(to bottom, var(--c-paper) 80%, var(--c-paper-dark) 100%);
+        border-radius: 0.4rem 0.4rem 0 0;
+    }
+
+    .letter-page--right {
+        background: linear-gradient(to top, var(--c-paper) 80%, #f3e6c8 100%);
+        border-radius: 0 0 0.4rem 0.4rem;
+    }
+
+    .letter-fold {
+        flex: 0 0 2px;
+        background: linear-gradient(to right, rgba(120, 80, 30, 0.1), rgba(120, 80, 30, 0.45), rgba(120, 80, 30, 0.1));
+        box-shadow: 0 -6px 12px rgba(120, 80, 30, 0.12), 0 6px 12px rgba(255, 255, 255, 0.35);
+    }
+}
+
+@media (max-width: 600px) {
+    .letter {
+        padding: 9rem 0.8rem 7rem;
+    }
+
+    .letter-page {
+        padding: 3.2rem 1.6rem 3rem;
+    }
+
+    .letter-fields {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+    }
+
+    .letter-stamp {
+        top: 1.2rem;
+        right: 1.2rem;
+        width: 3.9rem;
+    }
+
+    .letter-salute {
+        margin-top: 2.6rem;
+    }
+
+    .letter-send {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+}

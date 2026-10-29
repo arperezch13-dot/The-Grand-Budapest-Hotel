@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar · The Grand Budapest Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/book-now.css">
+    <script defer src="JS/index.js"></script>
+    <script defer src="JS/book-now.js"></script>
+</head>
+
+<body>
+    <!-- Header Fijo Superior: barra flotante -->
+    <header class="flex-row">
+        <!-- Botón del menú: círculo rosa -->
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-controls="drawerPanel" aria-expanded="false">
+            <span class="nav-toggle__lines" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="nav-toggle__label">Menú</span>
+        </button>
+
+        <!-- Logo Central -->
+        <a class="logo-link" href="index-es.html" aria-label="The Grand Budapest Hotel — Inicio">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="logo-name">The Grand Budapest Hotel</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+        </a>
+
+        <!-- Switcher de Idioma (EN/ES) -->
+        <div class="lang-switch">
+            <a href="book-now.html" class="lang-pill">EN</a>
+            <a href="book-now-es.html" class="lang-pill active">ES</a>
+        </div>
+    </header>
+
+    <!-- Menú Desplegable Lateral (Stitch Drawer) -->
+    <aside class="drawer-panel" id="drawerPanel" aria-hidden="true">
+        <!-- Cabecera del Drawer con Crest de las Llaves Cruzadas -->
+        <div class="drawer-header">
+            <div class="society-badge">
+                <div class="badge-icon">
+                    <img src="Media/BL (2).png" alt="Logotipo de la Sociedad de las Llaves Cruzadas">
+                </div>
+                <div class="badge-info">
+                    <p class="badge-tag">Confrérie des Clés d'Or</p>
+                    <h3>Sociedad de las Llaves Cruzadas</h3>
+                    <p class="badge-sub">Service Universel • Est. 1932</p>
+                </div>
+            </div>
+            <button class="drawer-close-btn" type="button" aria-label="Cerrar menú">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- Barra de Idiomas dentro del Drawer -->
+        <div class="drawer-lang-bar">
+            <span class="lang-label">Idioma</span>
+            <div class="lang-pills-group">
+                <a href="book-now-es.html" class="pill active">Español</a>
+                <a href="book-now.html" class="pill">Inglés</a>
+            </div>
+        </div>
+
+        <!-- Lista de Navegación Principal -->
+        <nav>
+            <ul id="primary-navigation" class="drawer-menu">
+                <li>
+                    <a class="link nav-card" href="mendls-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-restaurant-2-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title"> Pastelería Mendl's</span>
+                                <span class="card-desc">Courtesan au Chocolat & Pâtisserie</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="suites-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-hotel-bed-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Suites y tarifas</span>
+                                <span class="card-desc">Habitaciones 180€ — 800€</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="letter-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-mail-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Carta a M. Gustave</span>
+                                <span class="card-desc">Conserje Privé y telegramas</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="online-check-in-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-key-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Check-in online</span>
+                                <span class="card-desc">Funicular y billete alpino</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- Filigrana decorativa -->
+        <div class="drawer-flourish" aria-hidden="true">
+            <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true">
+                <path d="M1 5q7-7 14 0t14 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+        </div>
+
+        <!-- Pie del Drawer: CTA Dorado y Nota Telegrafiada -->
+        <div class="drawer-footer">
+            <a class="book-now-btn" href="book-now-es.html">
+                <i class="ri-calendar-event-line"></i>
+                <span> Reservar</span>
+            </a>
+            <div class="telegraph-box">
+                <div class="freq-line">
+                    <span class="pulse-dot"></span>
+                    <span>TELEGRAMA: 442.8 kHz • NEBELSBAD</span>
+                </div>
+                <p class="quote">“El secreto está en la cortesía impecable, el aroma de L'Air de Panache y una discreción inquebrantable.”</p>
+                <div class="stamp-line">
+                    <span>◈ REGISTRE NO. 8492 • SOCIÉTÉ ANONYME 1932 ◈</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay Sombreado con Blur -->
+    <div class="nav-backdrop" aria-hidden="true"></div>
+
+    <main class="booking">
+
+        <!-- HERO  -->
+        <section class="booking-hero">
+            <div class="booking-hero__inner">
+                <p class="booking-eyebrow booking-eyebrow--rose">◈ Reservas ◈</p>
+                <h1 class="booking-hero__title">Reserve su estancia</h1>
+
+                <ol class="booking-steps" aria-label="Pasos de la reserva">
+                    <li class="booking-steps__item is-current" aria-current="step"><span>1</span>Estancia y suite</li>
+                    <li class="booking-steps__line" aria-hidden="true"></li>
+                    <li class="booking-steps__item"><span>2</span>Extras</li>
+                    <li class="booking-steps__line" aria-hidden="true"></li>
+                    <li class="booking-steps__item"><span>3</span>Reserva</li>
+                </ol>
+
+                <button class="booking-info-btn" type="button" id="openInfo">Información del hotel</button>
+            </div>
+        </section>
+
+        <!-- Wave -->
+    <div class="booking-wave" aria-hidden="true"></div>
+
+        <!-- FECHAS: dos meses en una tarjeta ancha -->
+        <section class="booking-block" id="dates">
+            <div class="booking-block__inner reveal">
+                <div class="booking-block__head">
+                    <span class="booking-num">01</span>
+                    <h2 class="booking-title">¿Cuándo se alojará?</h2>
+                </div>
+                <!-- Guía de dos pasos: book-now.js marca cuál toca ahora -->
+                <ol class="booking-guide" id="bookingGuide" aria-live="polite">
+                    <li class="booking-guide__step is-active" data-step="in"><span>1</span>Elija su fecha de llegada</li>
+                    <li class="booking-guide__step" data-step="out"><span>2</span>Elija su fecha de salida</li>
+                </ol>
+                <p class="booking-hint">La salida es el día en que deja el hotel. Se pagan las noches intermedias.</p>
+
+                <p class="booking-alert" id="rangeAlert" role="status" hidden>
+                    Algunas de esas noches no están disponibles. Elija otras fechas.
+                </p>
+
+                <div class="cal">
+                    <div class="cal__months" id="calMonths"></div>
+                    <ul class="cal__legend">
+                        <li><span class="cal__dot cal__dot--end"></span>Llegada / salida</li>
+                        <li><span class="cal__dot cal__dot--range"></span>Su estancia</li>
+                        <li><span class="cal__dot cal__dot--off">12</span>No disponible</li>
+                    </ul>
+                </div>
+
+                <div class="stay">
+                    <div class="stay__cell is-next" id="checkinCell">
+                        <p class="stay__label">Llegada</p>
+                        <p class="stay__value" id="checkinText">Elija una fecha</p>
+                    </div>
+                    <div class="stay__cell" id="checkoutCell">
+                        <p class="stay__label">Salida</p>
+                        <p class="stay__value" id="checkoutText">Elija una fecha</p>
+                    </div>
+                    <div class="stay__cell stay__cell--total">
+                        <p class="stay__label">Total · <span id="nightsCount">0</span> <span id="nightsLabel">noches</span></p>
+                        <p class="stay__value" id="stayTotal">—</p>
+                        <p class="stay__note" id="stayNote">Elija una suite para ver el precio</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUITES -->
+        <section class="booking-block" id="suite">
+            <div class="booking-block__inner reveal">
+                <div class="booking-block__head">
+                    <span class="booking-num">02</span>
+                    <h2 class="booking-title">¿Cuál es su suite?</h2>
+                </div>
+                <p class="booking-hint">Los precios son por noche.</p>
+
+                <fieldset class="picks">
+                    <legend class="sr-only">Elija una suite</legend>
+
+                    <label class="pick" for="suite-the-madame-ds-parlor">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-madame-ds-parlor" value="the-madame-ds-parlor" data-name="El Salón de Madame D." data-price="800">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheMadameDParlor.jpg" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Suite Aristocrática</span>
+                            <span class="pick__name">El Salón de Madame D.</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>800 &euro;</strong>
+                            <small>por noche</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+
+                    <label class="pick" for="suite-the-mendls-suite">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-mendls-suite" value="the-mendls-suite" data-name="La Suite Mendl&rsquo;s" data-price="650">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheMendl'sSuite.jpg" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Gran Lujo</span>
+                            <span class="pick__name">La Suite Mendl&rsquo;s</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>650 &euro;</strong>
+                            <small>por noche</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+
+                    <label class="pick" for="suite-the-concierge-master">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-concierge-master" value="the-concierge-master" data-name="El Maestro Conserje" data-price="400">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheConciergeMaster.png" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Doble Imperial</span>
+                            <span class="pick__name">El Maestro Conserje</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>400 &euro;</strong>
+                            <small>por noche</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+
+                    <label class="pick" for="suite-the-zero-observatory">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-zero-observatory" value="the-zero-observatory" data-name="El Observatorio de Zero" data-price="250">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheZeroObservatory.png" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Individual Superior</span>
+                            <span class="pick__name">El Observatorio de Zero</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>250 &euro;</strong>
+                            <small>por noche</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+
+                    <label class="pick" for="suite-the-alpine-refuge">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-alpine-refuge" value="the-alpine-refuge" data-name="El Refugio Alpino" data-price="180">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheAlpineRefuge.webp" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Twin Estándar</span>
+                            <span class="pick__name">El Refugio Alpino</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>180 &euro;</strong>
+                            <small>por noche</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+                </fieldset>
+            </div>
+        </section>
+
+        <!-- HUÉSPEDES -->
+        <section class="booking-block booking-block--last" id="guests">
+            <div class="booking-block__inner reveal">
+                <div class="booking-block__head">
+                    <span class="booking-num">03</span>
+                    <h2 class="booking-title">¿Quién viene?</h2>
+                </div>
+
+                <div class="guests">
+                    <div class="guest">
+                        <div class="guest__text">
+                            <p class="guest__label">Adultos</p>
+                            <p class="guest__hint">18 años o más</p>
+                        </div>
+                        <div class="guest__counter">
+                            <button class="guest__btn" type="button" data-guest="adults" data-step="-1" aria-label="Menos adultos">&minus;</button>
+                            <output class="guest__value" id="adultsValue">2</output>
+                            <button class="guest__btn guest__btn--plus" type="button" data-guest="adults" data-step="1" aria-label="Más adultos">+</button>
+                        </div>
+                    </div>
+
+                    <div class="guest">
+                        <div class="guest__text">
+                            <p class="guest__label">Niños</p>
+                            <p class="guest__hint">0 – 17 años</p>
+                        </div>
+                        <div class="guest__counter">
+                            <button class="guest__btn" type="button" data-guest="children" data-step="-1" aria-label="Menos niños">&minus;</button>
+                            <output class="guest__value" id="childrenValue">0</output>
+                            <button class="guest__btn guest__btn--plus" type="button" data-guest="children" data-step="1" aria-label="Más niños">+</button>
+                        </div>
+                    </div>
+
+                    <div class="guest">
+                        <div class="guest__text">
+                            <p class="guest__label">Suites</p>
+                            <p class="guest__hint">Habitaciones a reservar</p>
+                        </div>
+                        <div class="guest__counter">
+                            <button class="guest__btn" type="button" data-guest="suites" data-step="-1" aria-label="Menos suites">&minus;</button>
+                            <output class="guest__value" id="suitesValue">1</output>
+                            <button class="guest__btn guest__btn--plus" type="button" data-guest="suites" data-step="1" aria-label="Más suites">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BARRA DE RESUMEN -->
+        <div class="booking-bar-wrap">
+            <div class="booking-bar" aria-live="polite">
+                <div class="booking-bar__info">
+                    <p class="booking-bar__suite" id="barSuite">Elija una suite</p>
+                    <p id="barDates">Elija su fecha de llegada</p>
+                    <p id="barGuests">2 adultos</p>
+                </div>
+                <div class="booking-bar__buy">
+                    <p class="booking-bar__total">
+                        <span id="barTotalLabel">Total</span>
+                        <strong id="barTotal">—</strong>
+                    </p>
+                    <button class="booking-bar__next" type="button" id="nextBtn" disabled>Siguiente · Extras</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL (info del hotel y confirmación) -->
+    <dialog class="booking-modal" id="modal" aria-labelledby="modalTitle">
+        <div class="booking-modal__box">
+            <p class="booking-eyebrow" id="modalEyebrow">El hotel</p>
+            <h2 class="booking-modal__title" id="modalTitle">The Grand Budapest Hotel</h2>
+            <div class="booking-modal__text" id="modalText"></div>
+            <button class="booking-modal__close" type="button" id="modalClose">Cerrar</button>
+        </div>
+    </dialog>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-background flex-column">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="Media/BL (2).png" alt="Logotipo de GBH">
+                </div>
+
+                <div class="footer-header">
+                    <div class="footer-tittle">
+                        <h2>The Grand Budapest Hotel</h2>
+                        <p class="footer-place">Nebelsbad &middot; República de Zubrowka &middot; Est. 1932</p>
+                    </div>
+                </div>
+
+                <div class="main-contact flex-row">
+                    <div class="contact-item">
+                        <p>Nebelsbad, República de Zubrowka</p>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <a href="mailto:reservations@grandbudapest.com">reservations@grandbudapest.com</a>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <p>+00 123 456 789</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="footer-nav__social flex-row">
+                        <li class="nav-item"><a href="#facebook">Facebook<i class="ri-facebook-fill"></i></a></li>
+                        <li class="nav-item"><a href="#instagram">Instagram<i class="ri-instagram-line"></i></a></li>
+                        <li class="nav-item"><a href="#pinterest">Pinterest<i class="ri-pinterest-line"></i></a></li>
+                    </ul>
+
+                    <ul class="footer-nav__links flex-row">
+                        <li class="nav-text"><a class="footer-pill" href="#privacy">Política de privacidad</a></li>
+                        <li class="nav-text"><a class="footer-pill footer-pill--ghost" href="#written">Reclamaciones por escrito</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-signature italic">
+                <p>Gestionado por la <span>Sociedad de las Llaves Cruzadas</span></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

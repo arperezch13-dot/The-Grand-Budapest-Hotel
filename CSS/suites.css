@@ -1,0 +1,558 @@
+
+.suites {
+    --c-rose-bg: #fbeef3;      /* rosa muy claro para los huecos de foto */
+    --c-ink: #420d47;          /* morado casi negro */
+    --c-ink-soft: #8a5578;     /* morado apagado para texto secundario */
+    --c-rose-ink: #7e3d63;     /* color de los rótulos sobre el fondo rosa */
+    --c-gold-text: #8a5f12;    /* dorado oscuro, legible sobre crema */
+
+    background: var(--c-cream);
+    color: var(--c-purple);
+    font-family: "TextFont1", sans-serif;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.suites section[id] {
+    scroll-margin-top: 5.5rem;
+}
+
+
+/* PIEZAS QUE SE REPITEN */
+
+.suites .suites-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+.suites .suites-eyebrow--rose { color: var(--c-rose-ink); }
+.suites .suites-eyebrow--gold { color: var(--c-logo-gold); }
+
+.suites .suites-title {
+    font-family: "GrandBudapestFont", serif;
+    font-size: clamp(2rem, 4.4vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--c-purple);
+}
+
+/* Botón */
+.suites .suites-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 2.1rem;
+    border-radius: 999px;
+    background: var(--c-purple);
+    color: var(--c-logo-gold);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.suites .suites-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.55rem 1.1rem rgba(23, 6, 26, 0.28);
+}
+
+.suites .suites-btn:focus-visible {
+    outline: 2px solid var(--c-logo-gold);
+    outline-offset: 3px;
+}
+
+/* Aparición al hacer scroll */
+.js-ready .reveal {
+    opacity: 0;
+    translate: 0 1.6rem;
+    transition: opacity 0.7s ease, translate 0.7s ease;
+}
+
+.js-ready .reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+
+/* HERO  */
+
+.suites-hero {
+    padding: 10.5rem 5rem 7rem;
+    background-color: var(--c-pink);
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"), url("../Media/pathern.png");
+}
+
+.suites-hero__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+.suites-hero__text {
+    flex: 1 1 32rem;
+    min-width: 0;
+}
+
+.suites-hero__text .suites-eyebrow {
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.34em;
+}
+
+.suites-hero__title {
+    font-family: "GrandBudapestFont", serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    color: var(--c-purple);
+}
+
+.suites-hero__lead {
+    max-width: 28.75rem;
+    margin: 1.6rem 0 2.4rem;
+    font-size: 1.06rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #6d2a68;
+}
+
+/* Placa recta con la horquilla de precios */
+.price-plaque {
+    flex: 0 0 auto;
+    padding: 2.1rem 2.9rem;
+    background: var(--c-cream);
+    box-shadow:
+        inset 0 0 0 1px var(--c-gold-ink),
+        inset 0 0 0 5px var(--c-cream),
+        inset 0 0 0 6px rgba(176, 125, 46, 0.35);
+    text-align: center;
+}
+
+.price-plaque__label {
+    margin-bottom: 0.5rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+.price-plaque__value {
+    font-family: "GrandBudapestFont", serif;
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--c-purple);
+}
+
+/* Tres rombos pequeños */
+.suites-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin: 0.9rem 0;
+}
+
+.suites-ornament span {
+    width: 0.32rem;
+    height: 0.32rem;
+    background: #d9b07a;
+    transform: rotate(45deg);
+}
+
+.suites-ornament span:nth-child(2) {
+    width: 0.44rem;
+    height: 0.44rem;
+    background: var(--c-gold-ink);
+}
+
+
+/* FILA POR SUITE  */
+
+.suites-list {
+    padding: 7rem 5rem 7rem;
+    background: var(--c-cream);
+}
+
+.suites-list__head {
+    margin-bottom: 3.6rem;
+    text-align: center;
+}
+
+.suites-list__head .suites-eyebrow {
+    margin-bottom: 0.7rem;
+}
+
+.suites-list__rows {
+    max-width: 70rem;
+    margin: 0 auto;
+    border-bottom: 1px dashed #c9a56a;
+}
+
+.suite-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 3.5rem;
+    padding: 3.4rem 0;
+    border-top: 1px dashed #c9a56a;
+}
+
+
+.suite-row__photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.suite-photo {
+    margin: 0;
+}
+
+.suite-photo__frame {
+    aspect-ratio: 1 / 1.12;
+    overflow: hidden;
+    background-color: var(--c-rose-bg);
+    background-image: repeating-linear-gradient(135deg, rgba(242, 168, 196, 0.3) 0 11px, transparent 11px 22px);
+    box-shadow: inset 0 0 0 1px rgba(176, 125, 46, 0.5);
+}
+
+/* Primera foto y Segunda foto */
+.suite-photo--room .suite-photo__frame {
+    border-radius: 7.5rem 7.5rem 0 0;
+}
+
+.suite-photo--living .suite-photo__frame {
+    border-radius: 3.75rem 0 3.75rem 0;
+}
+
+.suite-photo__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: scale 0.5s ease;
+}
+
+.suite-row:hover .suite-photo__frame img {
+    scale: 1.05;
+}
+
+.suite-photo figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+.suite-row__cat {
+    margin-bottom: 0.4rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+.suite-row__name {
+    margin-bottom: 0.6rem;
+    font-family: "GrandBudapestFont", serif;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--c-purple);
+}
+
+.suite-row__desc {
+    margin-bottom: 0.9rem;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--c-ink-soft);
+}
+
+.suite-row__amen {
+    margin-bottom: 1rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.7;
+    text-transform: uppercase;
+    color: #6d2a68;
+}
+
+.suite-row__buy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.suite-row__price {
+    font-family: "GrandBudapestFont", serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--c-purple);
+}
+
+.suite-row__price span {
+    font-family: "TextFont1", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-gold-text);
+}
+
+.suite-row__buy .suites-btn {
+    padding: 0.8rem 1.6rem;
+}
+
+
+/* Wave */
+
+.suites .suites-wave {
+    background: var(--c-purple);
+    line-height: 0;
+}
+
+.suites .suites-wave svg {
+    display: block;
+    width: 100%;
+    height: 6.9rem;
+}
+
+
+/* Tabla de tarifas y Reserva */
+
+.rates {
+    padding: 3.5rem 5rem 8rem;
+    background: var(--c-purple);
+}
+
+.rates__inner {
+    max-width: 65rem;
+    margin: 0 auto;
+}
+
+.rates__head {
+    margin-bottom: 2.8rem;
+}
+
+.rates__head .suites-eyebrow {
+    margin-bottom: 0.5rem;
+}
+
+.rates__head .suites-title {
+    color: var(--c-cream);
+}
+
+.rates__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rates__table th {
+    padding: 0 0 0.75rem;
+    border-bottom: 1px solid var(--c-logo-gold);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--c-logo-gold);
+}
+
+.rates__table td {
+    padding: 1.7rem 1rem 1.7rem 0;
+    border-bottom: 1px solid rgba(250, 193, 113, 0.35);
+    vertical-align: middle;
+}
+
+.rates__table th:last-child,
+.rates__table td:last-child {
+    padding-right: 0;
+    text-align: right;
+}
+
+.rates__name {
+    display: block;
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--c-cream);
+}
+
+.rates__cat {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #e7a9c6;
+}
+
+.rates__amen {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #e7a9c6;
+}
+
+.rates__price {
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--c-logo-gold);
+}
+
+/* Cierre redondo para reservar */
+.rates__cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-top: 4rem;
+    padding: 1.7rem 2.2rem;
+    border-radius: 999px;
+    background: var(--c-cream);
+}
+
+.rates__cta p {
+    font-family: "GrandBudapestFont", serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--c-purple);
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .suites-hero,
+    .suites-list,
+    .rates {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    .suite-row {
+        gap: 2.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .suites-hero {
+        padding: 8.8rem 1.5rem 5rem;
+    }
+
+    .price-plaque {
+        width: 100%;
+        padding: 1.6rem 1.5rem;
+    }
+
+    .suites-list {
+        padding: 5rem 1.5rem 5rem;
+    }
+
+    .suite-row {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 2.8rem 0;
+    }
+
+    .suites .suites-wave svg {
+        height: 4.5rem;
+    }
+
+    .rates {
+        padding: 2.8rem 1.5rem 6rem;
+    }
+
+    .rates__table .rates__amen,
+    .rates__table th:nth-child(2) {
+        display: none;
+    }
+
+    .rates__cta {
+        border-radius: 2rem;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .suites-hero {
+        padding: 7.5rem 1rem 4rem;
+    }
+
+    .suites .suites-eyebrow {
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+    }
+
+    .suite-photo--room .suite-photo__frame {
+        border-radius: 5rem 5rem 0 0;
+    }
+
+    .suite-photo--living .suite-photo__frame {
+        border-radius: 2.5rem 0 2.5rem 0;
+    }
+
+    .suites-list {
+        padding: 4rem 1rem;
+    }
+
+    .rates {
+        padding: 2.4rem 1rem 5.5rem;
+    }
+
+    .rates__name {
+        font-size: 1.2rem;
+    }
+
+    .rates__price {
+        font-size: 1.4rem;
+    }
+
+    .suites .suites-btn {
+        width: 100%;
+    }
+
+    .suite-row__buy .suites-btn {
+        width: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .js-ready .reveal {
+        opacity: 1;
+        translate: 0 0;
+        transition: none;
+    }
+
+    .suite-photo__frame img,
+    .suites .suites-btn {
+        transition: none;
+    }
+}

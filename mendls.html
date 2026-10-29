@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendl's Bakery · The Grand Budapest Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/mendls.css">
+    <script defer src="JS/index.js"></script>
+    <script defer src="JS/mendls.js"></script>
+</head>
+
+<body>
+    <!-- Header Fijo Superior: barra flotante -->
+    <header class="flex-row">
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="drawerPanel" aria-expanded="false">
+            <span class="nav-toggle__lines" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="nav-toggle__label">Menu</span>
+        </button>
+
+        <!-- Logo Central -->
+        <a class="logo-link" href="index.html" aria-label="The Grand Budapest Hotel — Home">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="logo-name">The Grand Budapest Hotel</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+        </a>
+
+        <!-- Switcher de Idioma (EN/ES) -->
+        <div class="lang-switch">
+            <a href="index.html" class="lang-pill active">EN</a>
+            <a href="index-es.html" class="lang-pill">ES</a>
+        </div>
+    </header>
+
+    <!-- Menú Desplegable Lateral -->
+    <aside class="drawer-panel" id="drawerPanel" aria-hidden="true">
+        <div class="drawer-header">
+            <div class="society-badge">
+                <div class="badge-icon">
+                    <img src="Media/BL (2).png" alt="Society of the Crossed Keys Logo">
+                </div>
+                <div class="badge-info">
+                    <p class="badge-tag">Confrérie des Clés d'Or</p>
+                    <h3>Society of the Crossed Keys</h3>
+                    <p class="badge-sub">Service Universel • Est. 1932</p>
+                </div>
+            </div>
+            <button class="drawer-close-btn" type="button" aria-label="Close menu">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- Barra de Idiomas dentro del Drawer -->
+        <div class="drawer-lang-bar">
+            <span class="lang-label">Language / Parlance</span>
+            <div class="lang-pills-group">
+                <a href="index-es.html" class="pill active">Spanish</a>
+                <a href="index.html" class="pill">English</a>
+            </div>
+        </div>
+
+        <!-- Lista de Navegación Principal -->
+        <nav>
+            <ul id="primary-navigation" class="drawer-menu">
+                <li>
+                    <a class="link nav-card" href="mendls.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-restaurant-2-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title"> Mendl's Bakery</span>
+                                <span class="card-desc">Courtesan au Chocolat & Pâtisserie</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="suites.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-hotel-bed-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Suites & Tariffs</span>
+                                <span class="card-desc">Rooms 180€ — 800€</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="letter.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-mail-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Letter to M. Gustave</span>
+                                <span class="card-desc">Concierge Privé & Telegrams</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="online-check-in.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-key-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Online Check-in</span>
+                                <span class="card-desc">Funicular & Alpino Ticket</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- Filigrana decorativa -->
+        <div class="drawer-flourish" aria-hidden="true">
+            <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true">
+                <path d="M1 5q7-7 14 0t14 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+        </div>
+
+        <!-- Pie del Drawer: CTA Dorado y Nota Telegrafiada -->
+        <div class="drawer-footer">
+            <a class="book-now-btn" href="book-now.html">
+                <i class="ri-calendar-event-line"></i>
+                <span> Book Now</span>
+            </a>
+            <div class="telegraph-box">
+                <div class="freq-line">
+                    <span class="pulse-dot"></span>
+                    <span>TELEGRAM: 442.8 kHz • NEBELSBAD</span>
+                </div>
+                <p class="quote">“The secret lies in impeccable courtesy, the aroma of L'Air de Panache, and unwavering discretion.”</p>
+                <div class="stamp-line">
+                    <span>◈ REGISTRE NO. 8492 • SOCIÉTÉ ANONYME 1932 ◈</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay Sombreado con Blur -->
+    <div class="nav-backdrop" aria-hidden="true"></div>
+
+    <main class="mendls">
+
+        <!-- HERO y pieza destacada -->
+        <section class="mendls-hero">
+            <div class="mendls-hero__head reveal">
+                <h1 class="mendls-hero__title">Mendl's Bakery</h1>
+                <p class="mendls-hero__lead">Luxury confectionery, fine pâtisserie &amp; Imperial purveyor since 1904</p>
+            </div>
+
+            <article class="feature reveal">
+                <div class="feature__photo">
+                    <img src="Media/Mendls/mendls box.webp" alt="Mendl's hexagonal pink box">
+                </div>
+                <div class="feature__body">
+                    <span class="mendls-badge">Le paquet légendaire</span>
+                    <h2 class="feature__title">The famous hexagonal <em>pink</em> box &amp; sky-blue ribbon</h2>
+                    <p class="feature__text">Every creation is wrapped by hand with the unrivalled geometry that Monsieur Gustave demands of the entire staff. Tied with silk thread and sealed with Zubrowkan wax.</p>
+                    <a class="mendls-btn mendls-btn--gold" href="#carta">Explore the imperial catalogue</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Wave morado -->
+        <div class="mendls-wave mendls-wave--cream" aria-hidden="true">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#55115a" d="M0,160L30,160C60,160,120,160,180,144C240,128,300,96,360,112C420,128,480,192,540,186.7C600,181,660,107,720,106.7C780,107,840,181,900,213.3C960,245,1020,235,1080,202.7C1140,171,1200,117,1260,112C1320,107,1380,149,1410,170.7L1440,192L1440,0L0,0Z"></path>
+            </svg>
+        </div>
+
+        <!-- LA CARTA -->
+        <section class="mendls-menu" id="carta">
+            <div class="mendls-menu__head reveal">
+                <h2 class="mendls-title">Gastronomic Salon Collection</h2>
+                <div class="mendls-ornament" aria-hidden="true"><span></span><span></span><span></span></div>
+                <p class="mendls-text">Pieces crafted with butter from the Alpine valleys, wild lavender essence and Central European cacao, imported under the supervision of M. Gustave.</p>
+            </div>
+
+            <div class="mendls-menu__grid">
+
+                <article class="pastry reveal" style="--i: 0">
+                    <span class="pastry__tag">I. Masterpiece</span>
+                    <div class="pastry__photo"><img src="Media/Mendls/courtesan-au-chocolat.png" alt="Courtesan au Chocolat">
+                    <span class="pastry__price">34 € / 38 $</span></div>
+                    <h3 class="pastry__title">Courtesan au Chocolat</h3>
+                    <p class="pastry__sub">Agatha's crowning work</p>
+                    <span class="pastry__rule" aria-hidden="true"></span>
+                    <p class="pastry__text">Three stacked choux of vanilla, cocoa and coffee, glazed in lavender, turquoise and pale pink with gold filigree and a candied cherry. Served on a Swiss lace doily.</p>
+                    <ul class="pastry__chips">
+                        <li>Cacao 70%</li>
+                        <li>Bourbon vanilla</li>
+                        <li>Gold leaf</li>
+                    </ul>
+                    <span class="pastry__rule pastry__rule--end" aria-hidden="true"></span>
+                    <a class="pastry__order" href="#orden" data-pastry="Courtesan au Chocolat"><i class="ri-shopping-bag-3-line"></i> Order for my suite</a>
+                    <a class="pastry__pack" href="#empaque">Pack in Mendl's pink box with ribbon</a>
+                </article>
+
+                <article class="pastry reveal" style="--i: 1">
+                    <span class="pastry__tag">II. Alpine Specialty</span>
+                    <div class="pastry__photo">
+                    <img src="Media/Mendls/tarta-grosellas-zubrowka.png" alt="Zubrowka redcurrant tart"><span class="pastry__price">21 € / 24 $</span></div>
+                    <h3 class="pastry__title">Zubrowka Redcurrant Tart</h3>
+                    <p class="pastry__sub">Recipe from the Nebelsbad mountains</p>
+                    <span class="pastry__rule" aria-hidden="true"></span>
+                    <p class="pastry__text">Pastry cream flavoured with alpine flower liqueur on a golden shortcrust, made with artisan butter from high-pasture cows.</p>
+                    <ul class="pastry__chips">
+                        <li>Red currants</li>
+                        <li>Alpine liqueur</li>
+                        <li>Light cream</li>
+                    </ul>
+                    <span class="pastry__rule pastry__rule--end" aria-hidden="true"></span>
+                    <a class="pastry__order" href="#orden" data-pastry="Zubrowka Redcurrant Tart"><i class="ri-shopping-bag-3-line"></i> Order for my suite</a>
+                    <a class="pastry__pack" href="#empaque">Pack in Mendl's pink box with ribbon</a>
+                </article>
+
+                <article class="pastry reveal" style="--i: 2">
+                    <span class="pastry__tag">III. Crossed Keys</span>
+                    <div class="pastry__photo"><img src="Media/Mendls/macarons-llaves-cruzadas.png" alt="Crossed Keys macarons"><span class="pastry__price">38 € / 43 $</span></div>
+                    <h3 class="pastry__title">Crossed Keys Macarons</h3>
+                    <p class="pastry__sub">Emblem of the brotherhood</p>
+                    <span class="pastry__rule" aria-hidden="true"></span>
+                    <p class="pastry__text">Fine almond shells filled with Grasse rose ganache and 24-carat edible gold, pressed with the emblem of the hotel's two bronze keys.</p>
+                    <ul class="pastry__chips">
+                        <li>Damask rose</li>
+                        <li>Edible gold</li>
+                        <li>Marcona almond</li>
+                    </ul>
+                    <span class="pastry__rule pastry__rule--end" aria-hidden="true"></span>
+                    <a class="pastry__order" href="#orden" data-pastry="Crossed Keys Macarons"><i class="ri-shopping-bag-3-line"></i> Order for my suite</a>
+                    <a class="pastry__pack" href="#empaque">Pack in Mendl's pink box with ribbon</a>
+                </article>
+
+                <article class="pastry reveal" style="--i: 0">
+                    <span class="pastry__tag">IV. In Memoriam</span>
+                    <div class="pastry__photo"><img src="Media/Mendls/madame-chocolate .png" alt="Éclair Madame D."><span class="pastry__price">22 € / 25 $</span></div>
+                    <h3 class="pastry__title">Éclair Madame D.</h3>
+                    <p class="pastry__sub">Homage to Countess Céline</p>
+                    <span class="pastry__rule" aria-hidden="true"></span>
+                    <p class="pastry__text">75% dark chocolate, crystallised violets from the gardens of Lutz and crunchy praline of imperial hazelnuts. Her favourite treat during her winter stays.</p>
+                    <ul class="pastry__chips">
+                        <li>Cacao 75% noir</li>
+                        <li>Candied violets</li>
+                        <li>Hazelnut praline</li>
+                    </ul>
+                    <span class="pastry__rule pastry__rule--end" aria-hidden="true"></span>
+                    <a class="pastry__order" href="#orden" data-pastry="Éclair Madame D."><i class="ri-shopping-bag-3-line"></i> Order for my suite</a>
+                    <a class="pastry__pack" href="#empaque">Pack in Mendl's pink box with ribbon</a>
+                </article>
+
+                <article class="pastry reveal" style="--i: 1">
+                    <span class="pastry__tag">V. The Great Escape</span>
+                    <div class="pastry__photo"><img src="Media/Mendls/checkpoint-19.png" alt="Checkpoint 19 chocolates"><span class="pastry__price">58 € / 65 $</span></div>
+                    <h3 class="pastry__title">Checkpoint 19 Chocolates</h3>
+                    <p class="pastry__sub">Tribute to the great escape of 1932</p>
+                    <span class="pastry__rule" aria-hidden="true"></span>
+                    <p class="pastry__text">Twelve handmade pieces of amaretto marzipan and cardamom coffee truffles. Includes one sweet sculpted as a tiny steel file, in tribute to Ludwig.</p>
+                    <ul class="pastry__chips">
+                        <li>Fine marzipan</li>
+                        <li>Cardamom</li>
+                        <li>Roasted coffee</li>
+                    </ul>
+                    <span class="pastry__rule pastry__rule--end" aria-hidden="true"></span>
+                    <a class="pastry__order" href="#orden" data-pastry="Checkpoint 19 Chocolates"><i class="ri-shopping-bag-3-line"></i> Order for my suite</a>
+                    <a class="pastry__pack" href="#empaque">Pack in Mendl's pink box with ribbon</a>
+                </article>
+
+                <article class="pastry reveal" style="--i: 2">
+                    <span class="pastry__tag">VI. Sweet Tradition</span>
+                    <div class="pastry__photo"><img src="Media/Mendls/mil-hojas.png" alt="Alpine mille-feuille"><span class="pastry__price">35 € / 39 $</span></div>
+                    <h3 class="pastry__title">Alpine Mille-feuille</h3>
+                    <p class="pastry__sub">Hand-caramelised puff pastry</p>
+                    <span class="pastry__rule" aria-hidden="true"></span>
+                    <p class="pastry__text">A thousand wafer-thin leaves caramelised with raw cane sugar, diplomat cream scented with Madagascan vanilla pods and a classic chevron glaze.</p>
+                    <ul class="pastry__chips">
+                        <li>Homemade puff pastry</li>
+                        <li>Madagascar vanilla</li>
+                        <li>Blond caramel</li>
+                    </ul>
+                    <span class="pastry__rule pastry__rule--end" aria-hidden="true"></span>
+                    <a class="pastry__order" href="#orden" data-pastry="Alpine Mille-feuille"><i class="ri-shopping-bag-3-line"></i> Order for my suite</a>
+                    <a class="pastry__pack" href="#empaque">Pack in Mendl's pink box with ribbon</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Crema wave -->
+        <div class="mendls-wave mendls-wave--pink" aria-hidden="true">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#fdf6ee" d="M0,32L30,48C60,64,120,96,180,122.7C240,149,300,171,360,181.3C420,192,480,192,540,160C600,128,660,64,720,69.3C780,75,840,149,900,197.3C960,245,1020,267,1080,245.3C1140,224,1200,160,1260,128C1320,96,1380,96,1410,96L1440,96L1440,0L0,0Z"></path>
+            </svg>
+        </div>
+
+        <!-- EMPAQUE y cita y formulario de pedido -->
+        <section class="mendls-wrap" id="empaque">
+            <div class="mendls-wrap__head reveal">
+                <h2 class="mendls-title">The Art of Mendl's Packaging</h2>
+            </div>
+            <ol class="wrap-steps">
+                <li class="wrap-step reveal" style="--i: 0">
+                    <span class="wrap-step__num">1</span>
+                    <h3 class="wrap-step__title">Hand-tinted cardboard</h3>
+                    <p class="wrap-step__text">Pressed cardboard, coloured with pale pink pigment and edged by hand in gold with bronze powder.</p>
+                </li>
+                <li class="wrap-step reveal" style="--i: 1">
+                    <span class="wrap-step__num">2</span>
+                    <h3 class="wrap-step__title">Glacé satin ribbon</h3>
+                    <p class="wrap-step__text">A sky-blue bow tied with the double Alpine sailor's knot, learned by the house since imperial times.</p>
+                </li>
+                <li class="wrap-step reveal" style="--i: 2">
+                    <span class="wrap-step__num">3</span>
+                    <h3 class="wrap-step__title">Diplomatic seal</h3>
+                    <p class="wrap-step__text">Caramel wax burned with the bakery's initial and the signature of the master pâtissier on duty.</p>
+                </li>
+            </ol>
+
+            <!-- Cita -->
+            <blockquote class="mendls-quote reveal">
+                <p>“Good pastry is the foundation of civilized diplomacy, my dear boy. Without a pristine Courtesan au Chocolat at teatime, the entire continent would plunge into catastrophic barbarism.”</p>
+                <cite>— Monsieur Gustave H., Head Concierge</cite>
+            </blockquote>
+
+            <!-- Formulario de pedido -->
+            <form class="order reveal" id="orden" action="#" method="post">
+                <p class="mendls-eyebrow">Formulaire de commande de suite</p>
+                <h2 class="order__title">Pastry Order to the Concierge</h2>
+                <p class="order__lead">Please share the details below so that M. Gustave may see to your delivery at once.</p>
+
+                <div class="order__grid">
+                    <p class="order__field">
+                        <label for="guest">Guest name</label>
+                        <input type="text" id="guest" name="guest" placeholder="Madame Céline Villeneuve Desgoffe" required>
+                    </p>
+                    <p class="order__field">
+                        <label for="suite">Suite number</label>
+                        <input type="text" id="suite" name="suite" placeholder="Suite no. 312 — Imperial Wing" required>
+                    </p>
+                    <p class="order__field">
+                        <label for="pastry">Selection</label>
+                        <select id="pastry" name="pastry">
+                            <option>Courtesan au Chocolat</option>
+                            <option>Zubrowka Redcurrant Tart</option>
+                            <option>Crossed Keys Macarons</option>
+                            <option>Éclair Madame D.</option>
+                            <option>Checkpoint 19 Chocolates</option>
+                            <option>Alpine Mille-feuille</option>
+                        </select>
+                    </p>
+                    <p class="order__field">
+                        <label for="time">Preferred tea-service time</label>
+                        <input type="time" id="time" name="time" value="16:30">
+                    </p>
+                    <p class="order__field order__field--wide">
+                        <label for="note">Special notes for the bakery</label>
+                        <textarea id="note" name="note" rows="3" placeholder="Individual box with a dedication in sepia calligraphy…"></textarea>
+                    </p>
+                </div>
+
+                <button class="mendls-btn mendls-btn--purple order__submit" type="submit">
+                    <i class="ri-send-plane-2-line"></i> Telegraph the order to the bakery
+                </button>
+                <p class="order__status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-background flex-column">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="Media/BL (2).png" alt="GBH Logo">
+                </div>
+
+                <div class="footer-header">
+                    <div class="footer-tittle">
+                        <h2>The Grand Budapest Hotel</h2>
+                        <p class="footer-place">Nebelsbad &middot; Republic of Zubrowka &middot; Est. 1932</p>
+                    </div>
+                </div>
+
+                <div class="main-contact flex-row">
+                    <div class="contact-item">
+                        <p>Nebelsbad, Republic of Zubrowka</p>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <a href="mailto:reservations@grandbudapest.com">reservations@grandbudapest.com</a>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <p>+00 123 456 789</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="footer-nav__social flex-row">
+                        <li class="nav-item"><a href="#facebook">Facebook<i class="ri-facebook-fill"></i></a></li>
+                        <li class="nav-item"><a href="#instagram">Instagram<i class="ri-instagram-line"></i></a></li>
+                        <li class="nav-item"><a href="#pinterest">Pinterest<i class="ri-pinterest-line"></i></a></li>
+                    </ul>
+
+                    <ul class="footer-nav__links flex-row">
+                        <li class="nav-text"><a class="footer-pill" href="#privacy">Privacy Policy</a></li>
+                        <li class="nav-text"><a class="footer-pill footer-pill--ghost" href="#written">Written Complaints</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-signature italic">
+                <p>Managed by the <span>Society of the Crossed Keys</span></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

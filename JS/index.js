@@ -1,13 +1,6 @@
-
-
 // Current time event listener para darle funcionalidad a los botones del carrousel
 const video = document.getElementById("gbhvideo");
 const buttons = document.querySelectorAll(".Mendls-btn");
-const header = document.querySelector("header");
-const navToggle = document.querySelector(".nav-toggle");
-const navBackdrop = document.querySelector(".nav-backdrop");
-const navIcon = navToggle ? navToggle.querySelector("i") : null;
-const navLinks = document.querySelectorAll("#primary-navigation a");
 
 const changeVideoTime = (event) => {
     const button = event.currentTarget;
@@ -21,89 +14,118 @@ buttons.forEach((button) => {
     button.addEventListener("click", changeVideoTime);
 }); 
 
-// Menu toggle para dispositivos móviles y tablets
+// Menu toggle + drawer (nav toggle v2)
+// La clase "nav-open" va en <body>; el CSS reacciona a ella.
 
-const syncNavToggle = () => {
-	if (!header || !navToggle || !navIcon) {
-		return;
-	}
+const navToggle = document.querySelector(".nav-toggle");
+const navDrawer = document.querySelector(".drawer-panel");
+const navBackdrop = document.querySelector(".nav-backdrop");
+const navCloseBtn = document.querySelector(".drawer-close-btn");
 
-	const isOpen = header.classList.contains("nav-open");
-	const isMobile = window.matchMedia("(max-width: 1024px)").matches;
-	const navigation = document.querySelector("#primary-navigation");
+if (navToggle && navDrawer) {
+	const FOCUSABLE = "a[href], button:not([disabled])";
+	const isNavOpen = () => document.body.classList.contains("nav-open");
 
-	if (navigation && isMobile) {
-		navigation.style.display = isOpen ? "flex" : "none";
-	}
+	// Pinta el estado (clase + atributos ARIA)
+	const renderNav = (open) => {
+		document.body.classList.toggle("nav-open", open);
+		navToggle.setAttribute("aria-expanded", String(open));
+		navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+		navDrawer.setAttribute("aria-hidden", String(!open));
+	};
 
-	if (navBackdrop && isMobile) {
-		navBackdrop.style.display = isOpen ? "block" : "none";
-	}
-
-	if (header && isMobile) {
-		const drawerShadow = document.querySelector(".drawer-shadow");
-		if (drawerShadow) {
-			drawerShadow.style.display = isOpen ? "block" : "none";
+	// Abre/cierra y gestiona el foco
+	const setNavOpen = (open) => {
+		if (open === isNavOpen()) {
+			return;
 		}
-	}
 
-	navToggle.setAttribute("aria-expanded", String(isOpen));
-	navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-	navIcon.className = isOpen ? "ri-close-line" : "ri-menu-3-line";
-};
+		const focusWasInside = navDrawer.contains(document.activeElement);
+		renderNav(open);
 
-if (header && navToggle) {
-	navToggle.addEventListener("click", () => {
-		header.classList.toggle("nav-open");
-		if (window.matchMedia("(max-width: 1024px)").matches) {
-			const navigation = document.querySelector("#primary-navigation");
-			const isOpen = header.classList.contains("nav-open");
-			if (navigation) {
-				navigation.style.display = isOpen ? "flex" : "none";
-			}
-			if (navBackdrop) {
-				navBackdrop.style.display = isOpen ? "block" : "none";
-			}
-			const drawerShadow = document.querySelector(".drawer-shadow");
-			if (drawerShadow) {
-				drawerShadow.style.display = isOpen ? "block" : "none";
-			}
+		if (open) {
+			navCloseBtn?.focus({ preventScroll: true });
+		} else if (focusWasInside) {
+			navToggle.focus({ preventScroll: true });
 		}
-		syncNavToggle();
-	});
+	};
 
-	if (navBackdrop) {
-		navBackdrop.addEventListener("click", () => {
-			header.classList.remove("nav-open");
-			syncNavToggle();
-		});
-	}
+	navToggle.addEventListener("click", () => setNavOpen(!isNavOpen()));
+	navCloseBtn?.addEventListener("click", () => setNavOpen(false));
+	navBackdrop?.addEventListener("click", () => setNavOpen(false));
 
-	navLinks.forEach((link) => {
-		link.addEventListener("click", () => {
-			if (window.matchMedia("(max-width: 1024px)").matches) {
-				header.classList.remove("nav-open");
-				syncNavToggle();
-			}
-		});
-	});
-
-	window.addEventListener("resize", () => {
-		if (!window.matchMedia("(max-width: 1024px)").matches) {
-			header.classList.remove("nav-open");
-			syncNavToggle();
+	// Cierra al pulsar cualquier enlace del drawer
+	navDrawer.addEventListener("click", (event) => {
+		if (event.target.closest("a[href]")) {
+			setNavOpen(false);
 		}
 	});
 
-	window.addEventListener("keydown", (event) => {
+	document.addEventListener("keydown", (event) => {
+		if (!isNavOpen()) {
+			return;
+		}
+
 		if (event.key === "Escape") {
-			header.classList.remove("nav-open");
-			syncNavToggle();
+			setNavOpen(false);
+			return;
+		}
+
+		// Mantiene el foco dentro del drawer mientras está abierto
+		if (event.key === "Tab") {
+			const items = Array.from(navDrawer.querySelectorAll(FOCUSABLE));
+			if (!items.length) {
+				return;
+			}
+
+			const first = items[0];
+			const last = items[items.length - 1];
+
+			if (event.shiftKey && document.activeElement === first) {
+				event.preventDefault();
+				last.focus();
+			} else if (!event.shiftKey && document.activeElement === last) {
+				event.preventDefault();
+				first.focus();
+			}
 		}
 	});
 
-	syncNavToggle();
+	// Estado inicial: cerrado
+	renderNav(false);
 }
+
+
+// Header: se encoge al bajar y marca la página actual en el menú
+
+const siteHeader = document.querySelector("header");
+
+if (siteHeader) {
+	let headerShrunk = false;
+
+	const updateHeaderOnScroll = () => {
+		const shouldShrink = window.scrollY > 40;
+
+		if (shouldShrink !== headerShrunk) {
+			siteHeader.classList.toggle("is-scrolled", shouldShrink);
+			headerShrunk = shouldShrink;
+		}
+	};
+
+	window.addEventListener("scroll", updateHeaderOnScroll, { passive: true });
+	updateHeaderOnScroll();
+}
+
+// Marca con aria-current la tarjeta del menú que apunta a esta página (el CSS la resalta)
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+document.querySelectorAll(".drawer-menu .nav-card").forEach((card) => {
+	const target = (card.getAttribute("href") || "").split("/").pop();
+
+	if (target && target === currentPage) {
+		card.setAttribute("aria-current", "page");
+	}
+});
 
 
 // typewriter effect en el título
@@ -149,6 +171,7 @@ const galleryBlock = document.querySelector(".gallery__block");
 const leftPhoto = document.querySelector(".gallery-image.left");
 const rightPhoto = document.querySelector(".gallery-image.right");
 const centerText = document.querySelector(".staff-text");
+const compactGalleryQuery = window.matchMedia("(max-width: 1024px)");
 const pinkWave = document.querySelector(".pink__wave");
 const purpleWave = document.querySelector(".purple__wave");
 let scrollFrameId = null;
@@ -189,6 +212,7 @@ if (heroSection && heroTitle) {
 	let heroScrollRange = Math.max(heroSection.offsetHeight * 0.18, window.innerHeight * 0.35, 1);
 	let galleryStart = gallerySection ? gallerySection.offsetTop : 0;
 	let galleryScrollRange = gallerySection ? Math.max(gallerySection.offsetHeight - window.innerHeight, 1) : 1;
+	let galleryTextStart = 0.1;
 	let activeHeroLetters = 0;
 	let highlightedGlimmers = false;
 	let lastHeroStep = -1;
@@ -205,6 +229,25 @@ if (heroSection && heroTitle) {
 
 		galleryStart = gallerySection.offsetTop;
 		galleryScrollRange = Math.max(gallerySection.offsetHeight - window.innerHeight, 1);
+		galleryTextStart = 0.1;
+
+		if (compactGalleryQuery.matches && galleryBlock && centerText) {
+			const viewport = window.innerHeight;
+
+			// Empieza a abrirse cuando el bloque llega al 80% de la pantalla...
+			galleryStart = gallerySection.offsetTop + galleryBlock.offsetTop - viewport * 0.8;
+			// y termina de abrirse en medio recorrido de pantalla (rápido)
+			galleryScrollRange = Math.max(viewport * 0.5, 1);
+
+			// El texto aparece cuando el hueco entre las fotos ya es tan ancho como él
+			const widest = Array.from(centerText.children).reduce((max, element) => {
+				const range = document.createRange();
+				range.selectNodeContents(element);
+				return Math.max(max, range.getBoundingClientRect().width);
+			}, 0);
+			const textRatio = Math.min((widest + 24) / window.innerWidth, 0.95);
+			galleryTextStart = Math.max(0.1, textRatio - 0.12);
+		}
 	};
 
 	const updateLayoutMetrics = () => {
@@ -254,9 +297,15 @@ if (heroSection && heroTitle) {
 			leftPhoto.style.transform = `translateX(-${progress * 100}%)`;
 			rightPhoto.style.transform = `translateX(${progress * 100}%)`;
 
-			const textProgress = Math.min(Math.max((progress - 0.1) / 0.15, 0), 1);
+			const textProgress = Math.min(Math.max((progress - galleryTextStart) / 0.12, 0), 1);
 			centerText.style.opacity = String(textProgress);
 			centerText.style.transform = `translateX(-50%) scale(${0.9 + (0.1 * textProgress)})`;
+		} else if (scrollY >= (sectionTop + sectionHeight)) {
+			// Pasado el tramo de la animación, las fotos quedan abiertas del todo
+			leftPhoto.style.transform = "translateX(-100%)";
+			rightPhoto.style.transform = "translateX(100%)";
+			centerText.style.opacity = "1";
+			centerText.style.transform = "translateX(-50%) scale(1)";
 		} else if (scrollY < sectionTop) {
 			leftPhoto.style.transform = "translateX(0)";
 			rightPhoto.style.transform = "translateX(0)";
@@ -288,52 +337,25 @@ if (heroSection && heroTitle) {
 	scheduleScrollEffects();
 }
 
+p
+// Staff cards: aparición escalonada cuando llegan a la pantalla 
 
-// Scroll animation para las olas en la sección hero
+const staffCards = document.querySelector(".staff-cards");
 
-if (pinkWave && purpleWave) {
-	let waveFrameId = null;
-	let pinkX = 0;
-	let purpleX = 0;
-	let lastWaveScrollY = window.scrollY;
-	let pendingDelta = 0;
-	const WAVE_LIMIT = 48;
-	const WAVE_SCROLL_FACTOR = 0.22;
+if (staffCards && "IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+	const cards = staffCards.querySelectorAll(".staff-card");
 
-	const updateWaveScroll = () => {
-		waveFrameId = null;
+	// Se oculta con JS; si JS falla, las cards se ven igualmente
+	staffCards.classList.add("is-ready");
 
-		if (pendingDelta === 0) {
-			return;
-		}
+	const staffObserver = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				cards.forEach((card) => card.classList.add("is-visible"));
+				staffObserver.disconnect();
+			}
+		});
+	}, { threshold: 0.15 });
 
-		const waveShift = pendingDelta * WAVE_SCROLL_FACTOR;
-		pendingDelta = 0;
-
-		pinkX = Math.max(-WAVE_LIMIT, Math.min(WAVE_LIMIT, pinkX + waveShift));
-		purpleX = Math.max(-WAVE_LIMIT, Math.min(WAVE_LIMIT, purpleX + waveShift));
-
-		pinkWave.style.transform = `translate3d(${pinkX}px, 0, 0)`;
-		purpleWave.style.transform = `translate3d(${purpleX}px, 0, 0)`;
-	};
-
-	const scheduleWaveScroll = () => {
-		if (waveFrameId !== null) {
-			return;
-		}
-
-		waveFrameId = window.requestAnimationFrame(updateWaveScroll);
-	};
-
-	window.addEventListener("resize", () => {
-		lastWaveScrollY = window.scrollY;
-		scheduleWaveScroll();
-	});
-	window.addEventListener("scroll", () => {
-		const currentScrollY = window.scrollY;
-		pendingDelta += currentScrollY - lastWaveScrollY;
-		lastWaveScrollY = currentScrollY;
-		scheduleWaveScroll();
-	}, { passive: true });
-	scheduleWaveScroll();
+	staffObserver.observe(staffCards);
 }

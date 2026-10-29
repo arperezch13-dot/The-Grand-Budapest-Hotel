@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suites y tarifas · The Grand Budapest Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/suites.css">
+    <script defer src="JS/index.js"></script>
+    <script defer src="JS/suites.js"></script>
+</head>
+
+<body>
+    <!-- Header Fijo Superior: barra flotante -->
+    <header class="flex-row">
+        <!-- Botón del menú: círculo rosa -->
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-controls="drawerPanel" aria-expanded="false">
+            <span class="nav-toggle__lines" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="nav-toggle__label">Menú</span>
+        </button>
+
+        <!-- Logo Central -->
+        <a class="logo-link" href="index-es.html" aria-label="The Grand Budapest Hotel — Inicio">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="logo-name">The Grand Budapest Hotel</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+        </a>
+
+        <!-- Switcher de Idioma (EN/ES) -->
+        <div class="lang-switch">
+            <a href="suites.html" class="lang-pill">EN</a>
+            <a href="suites-es.html" class="lang-pill active">ES</a>
+        </div>
+    </header>
+
+    <!-- Menú Desplegable Lateral -->
+    <aside class="drawer-panel" id="drawerPanel" aria-hidden="true">
+        <div class="drawer-header">
+            <div class="society-badge">
+                <div class="badge-icon">
+                    <img src="Media/BL (2).png" alt="Logotipo de la Sociedad de las Llaves Cruzadas">
+                </div>
+                <div class="badge-info">
+                    <p class="badge-tag">Confrérie des Clés d'Or</p>
+                    <h3>Sociedad de las Llaves Cruzadas</h3>
+                    <p class="badge-sub">Service Universel • Est. 1932</p>
+                </div>
+            </div>
+            <button class="drawer-close-btn" type="button" aria-label="Cerrar menú">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- Barra de Idiomas dentro del Drawer -->
+        <div class="drawer-lang-bar">
+            <span class="lang-label">Idioma</span>
+            <div class="lang-pills-group">
+                <a href="suites-es.html" class="pill active">Español</a>
+                <a href="suites.html" class="pill">Inglés</a>
+            </div>
+        </div>
+
+        <!-- Lista de Navegación Principal -->
+        <nav>
+            <ul id="primary-navigation" class="drawer-menu">
+                <li>
+                    <a class="link nav-card" href="mendls-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-restaurant-2-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title"> Pastelería Mendl's</span>
+                                <span class="card-desc">Courtesan au Chocolat & Pâtisserie</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="suites-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-hotel-bed-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Suites y tarifas</span>
+                                <span class="card-desc">Habitaciones 180€ — 800€</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="letter-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-mail-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Carta a M. Gustave</span>
+                                <span class="card-desc">Conserje Privé y telegramas</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="online-check-in-es.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-key-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Check-in online</span>
+                                <span class="card-desc">Funicular y billete alpino</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- Filigrana decorativa -->
+        <div class="drawer-flourish" aria-hidden="true">
+            <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true">
+                <path d="M1 5q7-7 14 0t14 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+        </div>
+
+        <!-- Pie del Drawer: CTA Dorado y Nota Telegrafiada -->
+        <div class="drawer-footer">
+            <a class="book-now-btn" href="book-now-es.html">
+                <i class="ri-calendar-event-line"></i>
+                <span> Reservar</span>
+            </a>
+            <div class="telegraph-box">
+                <div class="freq-line">
+                    <span class="pulse-dot"></span>
+                    <span>TELEGRAMA: 442.8 kHz • NEBELSBAD</span>
+                </div>
+                <p class="quote">“El secreto está en la cortesía impecable, el aroma de L'Air de Panache y una discreción inquebrantable.”</p>
+                <div class="stamp-line">
+                    <span>◈ REGISTRE NO. 8492 • SOCIÉTÉ ANONYME 1932 ◈</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay Sombreado con Blur -->
+    <div class="nav-backdrop" aria-hidden="true"></div>
+
+    <main class="suites">
+
+        <!-- HERO  -->
+        <section class="suites-hero">
+            <div class="suites-hero__inner">
+                <div class="suites-hero__text reveal">
+                    <p class="suites-eyebrow suites-eyebrow--rose">◈ Chambres &amp; tarifs ◈</p>
+                    <h1 class="suites-hero__title">Suites y<br>Tarifas</h1>
+                    <p class="suites-hero__lead">Cinco habitaciones, desde una twin con vistas a la nieve hasta la Suite Aristocrática. Elija la que mejor se adapte a su estancia.</p>
+                    <a class="suites-btn" href="#rates">Ver la lista de tarifas</a>
+                </div>
+
+                <!-- Placa recta con la horquilla de precios -->
+                <div class="price-plaque reveal">
+                    <p class="price-plaque__label">Desde · por noche</p>
+                    <p class="price-plaque__value" data-value="180">180 €</p>
+                    <div class="suites-ornament" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <p class="price-plaque__label">Hasta</p>
+                    <p class="price-plaque__value" data-value="800">800 €</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Las suites -->
+        <section class="suites-list" id="suites">
+            <div class="suites-list__head reveal">
+                <p class="suites-eyebrow">Nos chambres</p>
+                <h2 class="suites-title">Cinco maneras de alojarse</h2>
+            </div>
+
+            <div class="suites-list__rows">
+
+                <article class="suite-row reveal">
+                    <div class="suite-row__photos">
+                        <figure class="suite-photo suite-photo--room">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheMadameDParlor.jpg" alt="El Salón de Madame D." loading="lazy">
+                            </div>
+                            <figcaption>La habitación</figcaption>
+                        </figure>
+                        <figure class="suite-photo suite-photo--living">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheMadameDParlor(living).jpg" alt="El Salón de Madame D., zona de estar" loading="lazy">
+                            </div>
+                            <figcaption>La zona de estar</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="suite-row__info">
+                        <p class="suite-row__cat">N.º I · Suite Aristocrática</p>
+                        <h3 class="suite-row__name">El Salón de Madame D.</h3>
+                        <p class="suite-row__desc">Nuestra suite más cara, decorada con réplicas de arte renacentista. Incluye una caja fuerte secreta.</p>
+                        <p class="suite-row__amen">Colección de arte · Servicio de champán · Biblioteca privada</p>
+                        <div class="suite-row__buy">
+                            <p class="suite-row__price">800 € <span>/ noche</span></p>
+                            <a class="suites-btn" href="book-now-es.html?suite=the-madame-ds-parlor">Reservar</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="suite-row reveal">
+                    <div class="suite-row__photos">
+                        <figure class="suite-photo suite-photo--room">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheMendl'sSuite.jpg" alt="La Suite Mendl's" loading="lazy">
+                            </div>
+                            <figcaption>La habitación</figcaption>
+                        </figure>
+                        <figure class="suite-photo suite-photo--living">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheMendl'sSuite(living).jpg" alt="La Suite Mendl's, zona de estar" loading="lazy">
+                            </div>
+                            <figcaption>La zona de estar</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="suite-row__info">
+                        <p class="suite-row__cat">N.º II · Gran Lujo</p>
+                        <h3 class="suite-row__name">La Suite Mendl's</h3>
+                        <p class="suite-row__desc">Bañada en rosas pastel y simetría, con vistas al funicular y una cortesana de cortesía.</p>
+                        <p class="suite-row__amen">Balcón privado · Baño de mármol rosa · Ayuda de cámara personal</p>
+                        <div class="suite-row__buy">
+                            <p class="suite-row__price">650 € <span>/ noche</span></p>
+                            <a class="suites-btn" href="book-now-es.html?suite=the-mendls-suite">Reservar</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="suite-row reveal">
+                    <div class="suite-row__photos">
+                        <figure class="suite-photo suite-photo--room">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheConciergeMaster.png" alt="El Maestro Conserje" loading="lazy">
+                            </div>
+                            <figcaption>La habitación</figcaption>
+                        </figure>
+                        <figure class="suite-photo suite-photo--living">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheConciergeMaster(living).png" alt="El Maestro Conserje, zona de estar" loading="lazy">
+                            </div>
+                            <figcaption>La zona de estar</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="suite-row__info">
+                        <p class="suite-row__cat">N.º III · Doble Imperial</p>
+                        <h3 class="suite-row__name">El Maestro Conserje</h3>
+                        <p class="suite-row__desc">Inspirada en Monsieur Gustave H.: cortinas de terciopelo rojo intenso, muebles de roble y una colección de L'Air de Panache.</p>
+                        <p class="suite-row__amen">Teléfono de baquelita · Batas de seda · Espejo dorado</p>
+                        <div class="suite-row__buy">
+                            <p class="suite-row__price">400 € <span>/ noche</span></p>
+                            <a class="suites-btn" href="book-now-es.html?suite=the-concierge-master">Reservar</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="suite-row reveal">
+                    <div class="suite-row__photos">
+                        <figure class="suite-photo suite-photo--room">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheZeroObservatory.png" alt="El Observatorio de Zero" loading="lazy">
+                            </div>
+                            <figcaption>La habitación</figcaption>
+                        </figure>
+                        <figure class="suite-photo suite-photo--living">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheZeroObservatory(living).png" alt="El Observatorio de Zero, zona de estar" loading="lazy">
+                            </div>
+                            <figcaption>La zona de estar</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="suite-row__info">
+                        <p class="suite-row__cat">N.º IV · Individual Superior</p>
+                        <h3 class="suite-row__name">El Observatorio de Zero</h3>
+                        <p class="suite-row__desc">Una habitación modesta pero perfectamente equilibrada en lo alto del ala este. Ideal para escritores.</p>
+                        <p class="suite-row__amen">Vistas desde el tragaluz · Biblioteca de poesía · Escritorio</p>
+                        <div class="suite-row__buy">
+                            <p class="suite-row__price">250 € <span>/ noche</span></p>
+                            <a class="suites-btn" href="book-now-es.html?suite=the-zero-observatory">Reservar</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="suite-row reveal">
+                    <div class="suite-row__photos">
+                        <figure class="suite-photo suite-photo--room">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheAlpineRefuge.webp" alt="El Refugio Alpino" loading="lazy">
+                            </div>
+                            <figcaption>La habitación</figcaption>
+                        </figure>
+                        <figure class="suite-photo suite-photo--living">
+                            <div class="suite-photo__frame">
+                                <img src="Media/Rooms/TheAlpineRefuge(living).png" alt="El Refugio Alpino, zona de estar" loading="lazy">
+                            </div>
+                            <figcaption>La zona de estar</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="suite-row__info">
+                        <p class="suite-row__cat">N.º V · Twin Estándar</p>
+                        <h3 class="suite-row__name">El Refugio Alpino</h3>
+                        <p class="suite-row__desc">Acogedora y nostálgica, con una vista de 360 grados de las montañas nevadas de la República de Zubrowka.</p>
+                        <p class="suite-row__amen">Vistas a la montaña · Mantas de lana · Radio de época</p>
+                        <div class="suite-row__buy">
+                            <p class="suite-row__price">180 € <span>/ noche</span></p>
+                            <a class="suites-btn" href="book-now-es.html?suite=the-alpine-refuge">Reservar</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Wave -->
+        <div class="suites-wave" aria-hidden="true">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#fdf6ee" d="M0,32L30,48C60,64,120,96,180,122.7C240,149,300,171,360,181.3C420,192,480,192,540,160C600,128,660,64,720,69.3C780,75,840,149,900,197.3C960,245,1020,267,1080,245.3C1140,224,1200,160,1260,128C1320,96,1380,96,1410,96L1440,96L1440,0L0,0Z"></path>
+            </svg>
+        </div>
+
+        <!-- Tabla de tarifas -->
+        <section class="rates" id="rates">
+            <div class="rates__inner">
+                <div class="rates__head reveal">
+                    <p class="suites-eyebrow suites-eyebrow--gold">◈ Tarif de la maison ◈</p>
+                    <h2 class="suites-title">Lista de tarifas</h2>
+                </div>
+
+                <table class="rates__table reveal">
+                    <thead>
+                        <tr>
+                            <th scope="col">Suite</th>
+                            <th scope="col">Servicios</th>
+                            <th scope="col">Por noche</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="rates__name">El Salón de Madame D.</span>
+                                <span class="rates__cat">Suite Aristocrática</span>
+                            </td>
+                            <td class="rates__amen">Colección de arte · Servicio de champán · Biblioteca privada</td>
+                            <td class="rates__price">800 €</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="rates__name">La Suite Mendl's</span>
+                                <span class="rates__cat">Gran Lujo</span>
+                            </td>
+                            <td class="rates__amen">Balcón privado · Baño de mármol rosa · Ayuda de cámara personal</td>
+                            <td class="rates__price">650 €</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="rates__name">El Maestro Conserje</span>
+                                <span class="rates__cat">Doble Imperial</span>
+                            </td>
+                            <td class="rates__amen">Teléfono de baquelita · Batas de seda · Espejo dorado</td>
+                            <td class="rates__price">400 €</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="rates__name">El Observatorio de Zero</span>
+                                <span class="rates__cat">Individual Superior</span>
+                            </td>
+                            <td class="rates__amen">Vistas desde el tragaluz · Biblioteca de poesía · Escritorio</td>
+                            <td class="rates__price">250 €</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="rates__name">El Refugio Alpino</span>
+                                <span class="rates__cat">Twin Estándar</span>
+                            </td>
+                            <td class="rates__amen">Vistas a la montaña · Mantas de lana · Radio de época</td>
+                            <td class="rates__price">180 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Cierre redondo para reservar -->
+                <div class="rates__cta reveal">
+                    <p>¿Desea ser nuestro huésped?</p>
+                    <a class="suites-btn" href="book-now-es.html">Reserve su suite</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-background flex-column">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="Media/BL (2).png" alt="Logotipo de GBH">
+                </div>
+
+                <div class="footer-header">
+                    <div class="footer-tittle">
+                        <h2>The Grand Budapest Hotel</h2>
+                        <p class="footer-place">Nebelsbad &middot; República de Zubrowka &middot; Est. 1932</p>
+                    </div>
+                </div>
+
+                <div class="main-contact flex-row">
+                    <div class="contact-item">
+                        <p>Nebelsbad, República de Zubrowka</p>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <a href="mailto:reservations@grandbudapest.com">reservations@grandbudapest.com</a>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <p>+00 123 456 789</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="footer-nav__social flex-row">
+                        <li class="nav-item"><a href="#facebook">Facebook<i class="ri-facebook-fill"></i></a></li>
+                        <li class="nav-item"><a href="#instagram">Instagram<i class="ri-instagram-line"></i></a></li>
+                        <li class="nav-item"><a href="#pinterest">Pinterest<i class="ri-pinterest-line"></i></a></li>
+                    </ul>
+
+                    <ul class="footer-nav__links flex-row">
+                        <li class="nav-text"><a class="footer-pill" href="#privacy">Política de privacidad</a></li>
+                        <li class="nav-text"><a class="footer-pill footer-pill--ghost" href="#written">Reclamaciones por escrito</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-signature italic">
+                <p>Gestionado por la <span>Sociedad de las Llaves Cruzadas</span></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

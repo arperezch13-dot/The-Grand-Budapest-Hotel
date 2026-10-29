@@ -1,254 +1,444 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budapest Hotel — Reservas</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
-        rel="stylesheet">
+    <title>Book now · The Grand Budapest Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/book-now.css">
-    <script  defer src="JS/book-now.js"></script>
+    <script defer src="JS/index.js"></script>
+    <script defer src="JS/book-now.js"></script>
 </head>
 
 <body>
-
-    <!-- ─── HERO ─── -->
-    <section class="hero">
-        <img class="hero-img" src="Media/night.jpg"
-            alt="Hotel Odisej Mljet">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hotel-stars">★ ★ ★</div>
-            <h1 class="hotel-name">The Grand Budapest<em> Hotel</em></h1>
-            <p class="hotel-subtitle">Wes Anderson</p>
-        </div>
-        <button class="hero-info-btn" onclick="showInfoModal()">
-            <span>ℹ</span> Hotel Info
+    <!-- Header Fijo Superior: barra flotante -->
+    <header class="flex-row">
+        <!-- Botón del menú: círculo rosa -->
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="drawerPanel" aria-expanded="false">
+            <span class="nav-toggle__lines" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="nav-toggle__label">Menu</span>
         </button>
-    </section>
 
-    <!-- ─── STEPS BAR ─── -->
-    <nav class="steps-bar">
-        <ul>
-            <li class="active"><span class="step-num">1</span> Room Selection</li>
-            <li><span class="step-num">2</span> Extras</li>
-            <li><span class="step-num">3</span> Booking</li>
-        </ul>
-    </nav>
+        <!-- Logo Central -->
+        <a class="logo-link" href="index.html" aria-label="The Grand Budapest Hotel — Home">
+            <span class="logo-dot" aria-hidden="true"></span>
+            <span class="logo-name">The Grand Budapest Hotel</span>
+            <span class="logo-dot" aria-hidden="true"></span>
+        </a>
 
-    <!-- ─── SEARCH BAR ─── -->
-    <div class="search-bar">
-        <div class="search-item">
-            <span class="search-icon">🏨</span>
-            <div>
-                <span class="search-label">Hotel</span>
-                <span class="search-value">Budapest Hotel ▾</span>
+        <!-- Switcher de Idioma (EN/ES) -->
+        <div class="lang-switch">
+            <a href="index.html" class="lang-pill active">EN</a>
+            <a href="index-es.html" class="lang-pill">ES</a>
+        </div>
+    </header>
+
+    <!-- Menú Desplegable Lateral (Stitch Drawer) -->
+    <aside class="drawer-panel" id="drawerPanel" aria-hidden="true">
+        <!-- Cabecera del Drawer con Crest de las Llaves Cruzadas -->
+        <div class="drawer-header">
+            <div class="society-badge">
+                <div class="badge-icon">
+                    <img src="Media/BL (2).png" alt="Society of the Crossed Keys Logo">
+                </div>
+                <div class="badge-info">
+                    <p class="badge-tag">Confrérie des Clés d'Or</p>
+                    <h3>Society of the Crossed Keys</h3>
+                    <p class="badge-sub">Service Universel • Est. 1932</p>
+                </div>
+            </div>
+            <button class="drawer-close-btn" type="button" aria-label="Close menu">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- Barra de Idiomas dentro del Drawer -->
+        <div class="drawer-lang-bar">
+            <span class="lang-label">Language / Parlance</span>
+            <div class="lang-pills-group">
+                <a href="index-es.html" class="pill active">Spanish</a>
+                <a href="index.html" class="pill">English</a>
             </div>
         </div>
 
-        <div class="search-item" id="dateSearchItem">
-            <span class="search-icon">📅</span>
-            <div>
-                <span class="search-label">Dates</span>
-                <span class="search-value" id="datesDisplay">Select dates ▾</span>
-            </div>
+        <!-- Lista de Navegación Principal -->
+        <nav>
+            <ul id="primary-navigation" class="drawer-menu">
+                <li>
+                    <a class="link nav-card" href="mendls.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-restaurant-2-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title"> Mendl's Bakery</span>
+                                <span class="card-desc">Courtesan au Chocolat & Pâtisserie</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="suites.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-hotel-bed-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Suites & Tariffs</span>
+                                <span class="card-desc">Rooms 180€ — 800€</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="#carta">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-mail-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Letter to M. Gustave</span>
+                                <span class="card-desc">Concierge Privé & Telegrams</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="link nav-card" href="online-check-in.html">
+                        <div class="card-left">
+                            <span class="card-icon"><i class="ri-key-line"></i></span>
+                            <div class="card-text">
+                                <span class="card-title">Online Check-in</span>
+                                <span class="card-desc">Funicular & Alpino Ticket</span>
+                            </div>
+                        </div>
+                        <i class="ri-arrow-right-line arrow-icon"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- Filigrana decorativa -->
+        <div class="drawer-flourish" aria-hidden="true">
+            <svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true">
+                <path d="M1 5q7-7 14 0t14 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
         </div>
 
-        <div class="search-item" id="guestsSearchItem" style="position:relative;">
-            <span class="search-icon">👥</span>
-            <div>
-                <span class="search-label">Room and Guests</span>
-                <span class="search-value" id="guestsDisplay">1 room, 1 adult ▾</span>
-            </div>
-            <!-- Guests dropdown -->
-            <div class="guests-dropdown" id="guestsDropdown">
-                <div class="guest-row">
-                    <div>
-                        <div class="guest-label">Adults</div>
-                        <div class="guest-sublabel">18+ years</div>
-                    </div>
-                    <div class="guest-counter">
-                        <button class="counter-btn" id="adultMinus" onclick="changeGuests('adults', -1)"
-                            disabled>−</button>
-                        <span class="counter-val" id="adultsVal">1</span>
-                        <button class="counter-btn" id="adultPlus" onclick="changeGuests('adults', 1)">+</button>
-                    </div>
+        <!-- Pie del Drawer: CTA Dorado y Nota Telegrafiada -->
+        <div class="drawer-footer">
+            <a class="book-now-btn" href="book-now.html">
+                <i class="ri-calendar-event-line"></i>
+                <span> Book Now</span>
+            </a>
+            <div class="telegraph-box">
+                <div class="freq-line">
+                    <span class="pulse-dot"></span>
+                    <span>TELEGRAM: 442.8 kHz • NEBELSBAD</span>
                 </div>
-                <div class="guest-row">
-                    <div>
-                        <div class="guest-label">Children</div>
-                        <div class="guest-sublabel">0–17 years</div>
-                    </div>
-                    <div class="guest-counter">
-                        <button class="counter-btn" id="childMinus" onclick="changeGuests('children', -1)"
-                            disabled>−</button>
-                        <span class="counter-val" id="childrenVal">0</span>
-                        <button class="counter-btn" id="childPlus" onclick="changeGuests('children', 1)">+</button>
-                    </div>
-                </div>
-                <div class="guest-row">
-                    <div>
-                        <div class="guest-label">Rooms</div>
-                    </div>
-                    <div class="guest-counter">
-                        <button class="counter-btn" id="roomMinus" onclick="changeGuests('rooms', -1)"
-                            disabled>−</button>
-                        <span class="counter-val" id="roomsVal">1</span>
-                        <button class="counter-btn" id="roomPlus" onclick="changeGuests('rooms', 1)">+</button>
-                    </div>
+                <p class="quote">“The secret lies in impeccable courtesy, the aroma of L'Air de Panache, and unwavering discretion.”</p>
+                <div class="stamp-line">
+                    <span>◈ REGISTRE NO. 8492 • SOCIÉTÉ ANONYME 1932 ◈</span>
                 </div>
             </div>
         </div>
+    </aside>
 
-        <div class="promo-item">
-            <span>%</span> Promotional Code
-        </div>
-    </div>
+    <!-- Overlay Sombreado con Blur -->
+    <div class="nav-backdrop" aria-hidden="true"></div>
 
-    <!-- ─── MAIN ─── -->
-    <main class="main">
+    <main class="booking">
 
-        <!-- LEFT -->
-        <div class="booking-left">
-            <div class="no-availability" id="noAvailMsg">
-                No rooms available for the selected dates. Please choose different dates.
+        <!-- HERO -->
+        <section class="booking-hero">
+            <div class="booking-hero__inner">
+                <p class="booking-eyebrow booking-eyebrow--rose">◈ Reservations ◈</p>
+                <h1 class="booking-hero__title">Book your stay</h1>
+
+                <ol class="booking-steps" aria-label="Booking steps">
+                    <li class="booking-steps__item is-current" aria-current="step"><span>1</span>Stay &amp; suite</li>
+                    <li class="booking-steps__line" aria-hidden="true"></li>
+                    <li class="booking-steps__item"><span>2</span>Extras</li>
+                    <li class="booking-steps__line" aria-hidden="true"></li>
+                    <li class="booking-steps__item"><span>3</span>Booking</li>
+                </ol>
+
+                <button class="booking-info-btn" type="button" id="openInfo">Hotel info</button>
             </div>
+        </section>
 
-            <h2 class="section-title">Select Your Stay</h2>
-            <p class="section-hint">CHECK-IN → CHECK-OUT · Click on two dates</p>
+        <!-- Wave -->
+    <div class="booking-wave" aria-hidden="true"></div>
 
-            <!-- CALENDAR -->
-            <div class="calendar-wrapper">
-                <div class="calendar-header">
-                    <button class="cal-nav" id="prevMonthBtn" onclick="changeMonth(-1)">‹</button>
-                    <span class="cal-month-year" id="calMonthYear"></span>
-                    <button class="cal-nav" onclick="changeMonth(1)">›</button>
+        <!-- FECHAS: dos meses en una tarjeta ancha -->
+        <section class="booking-block" id="dates">
+            <div class="booking-block__inner reveal">
+                <div class="booking-block__head">
+                    <span class="booking-num">01</span>
+                    <h2 class="booking-title">When will you stay?</h2>
                 </div>
-                <div class="calendar-grid">
-                    <div class="cal-days-header">
-                        <div class="cal-day-name">Mon</div>
-                        <div class="cal-day-name">Tue</div>
-                        <div class="cal-day-name">Wed</div>
-                        <div class="cal-day-name">Thu</div>
-                        <div class="cal-day-name">Fri</div>
-                        <div class="cal-day-name">Sat</div>
-                        <div class="cal-day-name">Sun</div>
-                    </div>
-                    <div class="cal-dates" id="calDates"></div>
-                </div>
-                <div class="cal-legend">
-                    <div class="legend-item">
-                        <div class="legend-dot selected"></div> Selected
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-dot range"></div> Period
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-dot unavail"></div> No available
-                    </div>
-                </div>
-            </div>
+                <!-- Guía de dos pasos: book-now.js marca cuál toca ahora -->
+                <ol class="booking-guide" id="bookingGuide" aria-live="polite">
+                    <li class="booking-guide__step is-active" data-step="in"><span>1</span>Choose your arrival date</li>
+                    <li class="booking-guide__step" data-step="out"><span>2</span>Choose your departure date</li>
+                </ol>
+                <p class="booking-hint">Your departure is the day you check out. You pay for the nights in between.</p>
 
-            <!-- DATES SUMMARY -->
-            <div class="dates-summary">
-                <div class="date-box">
-                    <div class="date-box-label">Check-in</div>
-                    <div class="date-box-value" id="checkinDisplay"><span class="empty">Not selected</span></div>
-                </div>
-                <div class="date-box">
-                    <div class="date-box-label">Check-out</div>
-                    <div class="date-box-value" id="checkoutDisplay"><span class="empty">Not selected</span></div>
-                </div>
-            </div>
-            <div class="nights-badge" id="nightsBadge" style="display:none;">
-                Stay of <strong id="nightsCount">0</strong> nights
-            </div>
-        </div>
+                <p class="booking-alert" id="rangeAlert" role="status" hidden>
+                    Some of those nights are not available. Please choose different dates.
+                </p>
 
-        <!-- RIGHT -->
-        <div class="booking-right">
-            <div class="room-card">
-                <div class="room-card-header">
-                    <div class="room-select-title">Room 1</div>
-                    <div class="room-select-hint">Select room type</div>
+                <div class="cal">
+                    <div class="cal__months" id="calMonths"></div>
+                    <ul class="cal__legend">
+                        <li><span class="cal__dot cal__dot--end"></span>Arrival / departure</li>
+                        <li><span class="cal__dot cal__dot--range"></span>Your stay</li>
+                        <li><span class="cal__dot cal__dot--off">12</span>Not available</li>
+                    </ul>
                 </div>
-                <div class="room-options" id="roomOptions">
-                    <div class="room-option" onclick="selectRoom(this, 'The Zero Observatory', 250)" data-price="250">
-                        <div>
-                            <div class="room-option-name">The Madame D's Parlor</div>
-                            <div class="room-option-desc">Aristocratic Suite</div>
-                        </div>
-                        <div class="room-option-price">
-                            <span class="price-amount">€800</span>
-                            <span class="price-night">/ night</span>
-                        </div>
+
+                <div class="stay">
+                    <div class="stay__cell is-next" id="checkinCell">
+                        <p class="stay__label">Arrival</p>
+                        <p class="stay__value" id="checkinText">Choose a date</p>
                     </div>
-                    <div class="room-option" onclick="selectRoom(this, 'The Alpine Refuge', 240)" data-price="240">
-                        <div>
-                            <div class="room-option-name">The Mendl's Suite</div>
-                            <div class="room-option-desc">Grand Luxury</div>
-                        </div>
-                        <div class="room-option-price">
-                            <span class="price-amount">€650</span>
-                            <span class="price-night">/ night</span>
-                        </div>
+                    <div class="stay__cell" id="checkoutCell">
+                        <p class="stay__label">Departure</p>
+                        <p class="stay__value" id="checkoutText">Choose a date</p>
                     </div>
-                    <div class="room-option" onclick="selectRoom(this, 'Junior Suite', 320)" data-price="320">
-                        <div>
-                            <div class="room-option-name">The Concierge Master</div>
-                            <div class="room-option-desc">Imperial Double</div>
-                        </div>
-                        <div class="room-option-price">
-                            <span class="price-amount">€400</span>
-                            <span class="price-night">/ night</span>
-                        </div>
+                    <div class="stay__cell stay__cell--total">
+                        <p class="stay__label">Total · <span id="nightsCount">0</span> <span id="nightsLabel">nights</span></p>
+                        <p class="stay__value" id="stayTotal">—</p>
+                        <p class="stay__note" id="stayNote">Choose a suite to see the price</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="total-box">
-                <div class="total-row">
-                    <span class="total-label">Room</span>
-                    <span class="total-value" id="totalRoomName">—</span>
+        <!-- SUITES: filas seleccionables -->
+        <section class="booking-block" id="suite">
+            <div class="booking-block__inner reveal">
+                <div class="booking-block__head">
+                    <span class="booking-num">02</span>
+                    <h2 class="booking-title">Which suite is yours?</h2>
                 </div>
-                <div class="total-row">
-                    <span class="total-label">Nights</span>
-                    <span class="total-value" id="totalNights">—</span>
+                <p class="booking-hint">Prices are per night.</p>
+
+                <fieldset class="picks">
+                    <legend class="sr-only">Choose a suite</legend>
+
+                    <label class="pick" for="suite-the-madame-ds-parlor">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-madame-ds-parlor" value="the-madame-ds-parlor" data-name="The Madame D&rsquo;s Parlor" data-price="800">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheMadameDParlor.jpg" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Aristocratic Suite</span>
+                            <span class="pick__name">The Madame D&rsquo;s Parlor</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>800 &euro;</strong>
+                            <small>per night</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+
+                    <label class="pick" for="suite-the-mendls-suite">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-mendls-suite" value="the-mendls-suite" data-name="The Mendl&rsquo;s Suite" data-price="650">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheMendl'sSuite.jpg" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Grand Luxury</span>
+                            <span class="pick__name">The Mendl&rsquo;s Suite</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>650 &euro;</strong>
+                            <small>per night</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+
+                    <label class="pick" for="suite-the-concierge-master">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-concierge-master" value="the-concierge-master" data-name="The Concierge Master" data-price="400">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheConciergeMaster.png" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Imperial Double</span>
+                            <span class="pick__name">The Concierge Master</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>400 &euro;</strong>
+                            <small>per night</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+
+                    <label class="pick" for="suite-the-zero-observatory">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-zero-observatory" value="the-zero-observatory" data-name="The Zero Observatory" data-price="250">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheZeroObservatory.png" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Superior Single</span>
+                            <span class="pick__name">The Zero Observatory</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>250 &euro;</strong>
+                            <small>per night</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+
+                    <label class="pick" for="suite-the-alpine-refuge">
+                        <input class="pick__input" type="radio" name="suite" id="suite-the-alpine-refuge" value="the-alpine-refuge" data-name="The Alpine Refuge" data-price="180">
+                        <span class="pick__photo">
+                            <img src="Media/Rooms/TheAlpineRefuge.webp" alt="" loading="lazy">
+                        </span>
+                        <span class="pick__body">
+                            <span class="pick__cat">Standard Twin</span>
+                            <span class="pick__name">The Alpine Refuge</span>
+                        </span>
+                        <span class="pick__price">
+                            <strong>180 &euro;</strong>
+                            <small>per night</small>
+                        </span>
+                        <span class="pick__mark" aria-hidden="true"></span>
+                    </label>
+                </fieldset>
+            </div>
+        </section>
+
+        <!-- HUÉSPEDES -->
+        <section class="booking-block booking-block--last" id="guests">
+            <div class="booking-block__inner reveal">
+                <div class="booking-block__head">
+                    <span class="booking-num">03</span>
+                    <h2 class="booking-title">Who is coming?</h2>
                 </div>
-                <div class="total-row">
-                    <span class="total-label">Price per night</span>
-                    <span class="total-value" id="totalPerNight">—</span>
+
+                <div class="guests">
+                    <div class="guest">
+                        <div class="guest__text">
+                            <p class="guest__label">Adults</p>
+                            <p class="guest__hint">18 years and over</p>
+                        </div>
+                        <div class="guest__counter">
+                            <button class="guest__btn" type="button" data-guest="adults" data-step="-1" aria-label="Fewer adults">&minus;</button>
+                            <output class="guest__value" id="adultsValue">2</output>
+                            <button class="guest__btn guest__btn--plus" type="button" data-guest="adults" data-step="1" aria-label="More adults">+</button>
+                        </div>
+                    </div>
+
+                    <div class="guest">
+                        <div class="guest__text">
+                            <p class="guest__label">Children</p>
+                            <p class="guest__hint">0 – 17 years</p>
+                        </div>
+                        <div class="guest__counter">
+                            <button class="guest__btn" type="button" data-guest="children" data-step="-1" aria-label="Fewer children">&minus;</button>
+                            <output class="guest__value" id="childrenValue">0</output>
+                            <button class="guest__btn guest__btn--plus" type="button" data-guest="children" data-step="1" aria-label="More children">+</button>
+                        </div>
+                    </div>
+
+                    <div class="guest">
+                        <div class="guest__text">
+                            <p class="guest__label">Suites</p>
+                            <p class="guest__hint">Rooms to book</p>
+                        </div>
+                        <div class="guest__counter">
+                            <button class="guest__btn" type="button" data-guest="suites" data-step="-1" aria-label="Fewer suites">&minus;</button>
+                            <output class="guest__value" id="suitesValue">1</output>
+                            <button class="guest__btn guest__btn--plus" type="button" data-guest="suites" data-step="1" aria-label="More suites">+</button>
+                        </div>
+                    </div>
                 </div>
-                <hr class="total-divider">
-                <div class="total-final-row">
-                    <span class="total-final-label">Total</span>
-                    <span class="total-final-value" id="totalAmount">€0</span>
+            </div>
+        </section>
+
+        <!-- BARRA DE RESUMEN -->
+        <div class="booking-bar-wrap">
+            <div class="booking-bar" aria-live="polite">
+                <div class="booking-bar__info">
+                    <p class="booking-bar__suite" id="barSuite">Choose a suite</p>
+                    <p id="barDates">Pick your arrival date</p>
+                    <p id="barGuests">2 adults</p>
                 </div>
-                <button class="btn-next" id="nextBtn" disabled onclick="goToNext()">
-                    NEXT
-                </button>
+                <div class="booking-bar__buy">
+                    <p class="booking-bar__total">
+                        <span id="barTotalLabel">Total</span>
+                        <strong id="barTotal">—</strong>
+                    </p>
+                    <button class="booking-bar__next" type="button" id="nextBtn" disabled>Next · Extras</button>
+                </div>
             </div>
         </div>
     </main>
 
-    <!-- ─── GUESTS OVERLAY ─── -->
-    <div class="dropdown-overlay" id="guestsOverlay" onclick="closeGuestsDropdown()"></div>
-
-    <!-- ─── INFO MODAL ─── -->
-    <div class="modal-overlay" id="infoModal">
-        <div class="modal">
-            <div class="modal-icon">🏨</div>
-            <div class="modal-title">Budapest Hotel</div>
-            <div class="modal-text">
-                The Budapest Hotel is located in the heart of the city, offering easy access to all major attractions.<br><br>
-                Check-in: 14:00 · Check-out: 11:00<br>
-                ☎ +00 123 456 789
-            </div>
-            <button class="modal-close" onclick="closeInfoModal()">Close</button>
+    <!-- MODAL (info del hotel y confirmación) -->
+    <dialog class="booking-modal" id="modal" aria-labelledby="modalTitle">
+        <div class="booking-modal__box">
+            <p class="booking-eyebrow" id="modalEyebrow">The hotel</p>
+            <h2 class="booking-modal__title" id="modalTitle">The Grand Budapest Hotel</h2>
+            <div class="booking-modal__text" id="modalText"></div>
+            <button class="booking-modal__close" type="button" id="modalClose">Close</button>
         </div>
-    </div>
+    </dialog>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-background flex-column">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="Media/BL (2).png" alt="GBH Logo">
+                </div>
+
+                <div class="footer-header">
+                    <div class="footer-tittle">
+                        <h2>The Grand Budapest Hotel</h2>
+                        <p class="footer-place">Nebelsbad &middot; Republic of Zubrowka &middot; Est. 1932</p>
+                    </div>
+                </div>
+
+                <div class="main-contact flex-row">
+                    <div class="contact-item">
+                        <p>Nebelsbad, Republic of Zubrowka</p>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <a href="mailto:reservations@grandbudapest.com">reservations@grandbudapest.com</a>
+                    </div>
+                    <span class="contact-sep" aria-hidden="true"></span>
+                    <div class="contact-item">
+                        <p>+00 123 456 789</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <ul class="footer-nav__social flex-row">
+                        <li class="nav-item"><a href="#facebook">Facebook<i class="ri-facebook-fill"></i></a></li>
+                        <li class="nav-item"><a href="#instagram">Instagram<i class="ri-instagram-line"></i></a></li>
+                        <li class="nav-item"><a href="#pinterest">Pinterest<i class="ri-pinterest-line"></i></a></li>
+                    </ul>
+
+                    <ul class="footer-nav__links flex-row">
+                        <li class="nav-text"><a class="footer-pill" href="#privacy">Privacy Policy</a></li>
+                        <li class="nav-text"><a class="footer-pill footer-pill--ghost" href="#written">Written Complaints</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-signature italic">
+                <p>Managed by the <span>Society of the Crossed Keys</span></p>
+            </div>
+        </div>
+    </footer>
+
 </body>
 
 </html>
