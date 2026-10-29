@@ -152,7 +152,10 @@
         <!--Video banner-->
         <section class="carrousel">
             <div class="carrousel__container">
-                <video id="gbhvideo" playsinline autoplay muted loop src="Media/Videos/0112_1_.webm"></video>
+                <video id="gbhvideo" playsinline autoplay muted loop preload="auto">
+                <source src="Media/Videos/0112_1_.webm" type="video/webm">
+                <source src="Media/Videos/0112_1_.mp4" type="video/mp4">
+                </video>
 
                 <div class="carrousel__content">
                     <h1 id="main-title" class="text-xl">The Grand Budapest Hotel</h1>
